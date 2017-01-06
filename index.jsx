@@ -13,8 +13,12 @@ const data = {
 	groups: [
 		{
 			name: 'uk',
+			selected: true,
 			companies: [
-				{name: 'Aadvark'},
+				{
+					name: 'Aadvark',
+					selected: true
+				},
 				{name: 'Ariel'},
 				{name: 'Tunnocks'}
 			]
@@ -35,7 +39,23 @@ const data = {
 		}
 	]}
 
-ReactDOM.render(
-	<Nav data={data}/>,
-	frame
-)
+function click(event) {
+	const groupName = event.target.innerText
+	data.groups.map((group) => {
+		if(group.name === groupName && !group.selected) {
+			group.selected = true
+		} else {
+			group.selected = false
+		}
+		return group
+	})
+	render()
+}
+function render() {
+	ReactDOM.render(
+		<Nav data={data} actions={click}/>,
+		frame
+	)
+}
+
+render()

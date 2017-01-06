@@ -1,12 +1,85 @@
 body {
 	margin: 0px;
+	font-family: Roboto, Arial, Helvetica, sans-serif
 }
 .container {
 	width: 600px;
 	height: 400px;
-	background-color: grey;
+	background-color: #4a4a4a;
 }
 
 .nav {
-	background-color: #999;
+	background-color: #4a4a4a;
+	color: #f5f5f5;
+	font-size: 17px;
+	cursor: pointer;
+}
+
+.group {	
+	margin-bottom: 2px;
+	position: relative;
+}
+
+.group-header {
+	padding: 10px 10px 10px 40px;
+	margin-bottom: 2px;
+	background-color: #3d3d3d;
+}
+
+.group-header:hover {
+	background-color: #252525;
+}
+
+.client-container {
+	padding-left: 40px;
+}
+
+.group svg {
+	width: 27px;
+    position: absolute;
+    top: 6px;
+    left: 7px;
+	fill: white;
+}
+
+
+.selected .client-container {
+	display: block;
+}
+
+.selected .group-header {
+	background-color: black;
+}
+
+.client-container {
+	display: none;
+}
+
+.client {
+	background-color: #3d3d3d;
+	margin-bottom: 2px;
+	position: relative;
+}
+
+.client svg {
+	width: 27px;
+    position: absolute;
+    top: 6px;
+    left: 7px;
+	fill: white;
+}
+
+.client-header {
+	padding: 10px 10px 10px 40px;
+	display: inline-block;
+	width: 70%;
+}
+
+.client:hover {
+	background-color: #252525;
+}
+
+.client-active {
+	display: inline-block;
+	width: 10%;
 }
