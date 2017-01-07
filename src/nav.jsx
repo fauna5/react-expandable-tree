@@ -5,7 +5,7 @@ class Nav extends React.Component {
 	render() {
 		const groups = []
 		this.props.data.groups.forEach(function(group) {
-			groups.push(<Group group={group} actions={this.props.actions}/>)
+			groups.push(<Group key={group.name} group={group} actions={this.props.actions}/>)
 		}, this)
 		return (
 			<div className="nav">

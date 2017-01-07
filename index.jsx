@@ -12,7 +12,15 @@ document.body.appendChild(frame)
 const data = {
 	groups: [
 		{
-			name: 'uk',
+			name: 'Japan',
+			companies: [
+				{name: 'Asahi'},
+				{name: 'Mitsubishi'},
+				{name: 'SONY'}
+			]
+		},
+		{
+			name: 'UK',
 			selected: true,
 			companies: [
 				{
@@ -24,17 +32,11 @@ const data = {
 			]
 		},
 		{
-			name: 'usa',
+			name: 'USA',
 			companies: [
-				{
-					name: 'Coca Cola'
-				},
-				{
-					name: 'Hersheys'
-				},
-				{
-					name: 'Ford'
-				}
+				{name: 'Coca Cola'},
+				{name: 'Hersheys'},
+				{name: 'Ford'}
 			]
 		}
 	]}

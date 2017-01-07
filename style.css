@@ -42,17 +42,8 @@ body {
 	fill: white;
 }
 
-
-.selected .client-container {
-	display: block;
-}
-
 .selected .group-header {
 	background-color: black;
-}
-
-.client-container {
-	display: none;
 }
 
 .client {
