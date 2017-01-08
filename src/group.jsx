@@ -1,6 +1,6 @@
-import Client from './client.jsx'
 import CaretDown from './caretDown.jsx'
 import CaretRight from './caretRight.jsx'
+import Client from './client.jsx'
 import Collapse from 'react-collapse'
 import React from 'react'
 
@@ -16,7 +16,7 @@ class Group extends React.Component {
 				<div className="group-header" onClick={this.props.actions}>
 					{this.props.group.name}
 				</div>
-				<Collapse isOpened={this.props.group.selected}>
+				<Collapse isOpened={this.props.group.selected || false}>
 					<div className="client-container">
 						{clients}
 					</div>
