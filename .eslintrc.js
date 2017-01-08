@@ -205,6 +205,7 @@ module.exports = {
 		"quote-props": "off",
 		"quotes": "off",
 		"radix": "error",
+		"react/jsx-uses-vars": "error",
 		"require-jsdoc": "off",
 		"rest-spread-spacing": "error",
 		"semi": [2, "never"],
