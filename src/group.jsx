@@ -11,7 +11,7 @@ class Group extends React.Component {
 			clients.push(<Client client={client} key={client.name}/>)
 		}, this)
 		return (
-			<div className={"group " + (this.props.group.selected === true ? 'selected' : '')}>
+			<div className={'group ' + (this.props.group.selected === true ? 'selected' : '')}>
 				{this.props.group.selected === true ? <CaretDown clickAction={this.props.actions}/> : <CaretRight clickAction={this.props.actions}/>}
 				<div className="group-header" onClick={this.props.actions}>
 					{this.props.group.name}
