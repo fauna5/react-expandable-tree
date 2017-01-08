@@ -39,10 +39,11 @@ const data = {
 				{name: 'Ford'}
 			]
 		}
-	]}
+	]
+}
 
 function click(event) {
-	const groupName = event.target.innerText
+	const groupName = findParentWithTag(event.target, 'div').querySelector('.group-header').innerText
 	data.groups.map((group) => {
 		if(group.name === groupName && !group.selected) {
 			group.selected = true
@@ -53,6 +54,19 @@ function click(event) {
 	})
 	render()
 }
+
+function findParentWithTag(el, tag) {
+	let element = el
+	const upperCaseTag = tag.toUpperCase()
+	while (element.parentNode) {
+		element = element.parentNode
+		if (element.tagName === upperCaseTag) {
+			return element
+		}
+	}
+	return null
+}
+
 function render() {
 	ReactDOM.render(
 		<Nav data={data} actions={click}/>,

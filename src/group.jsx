@@ -12,7 +12,7 @@ class Group extends React.Component {
 		}, this)
 		return (
 			<div className={"group " + (this.props.group.selected === true ? 'selected' : '')}>
-				{this.props.group.selected === true ? <CaretDown/> : <CaretRight/>}
+				{this.props.group.selected === true ? <CaretDown clickAction={this.props.actions}/> : <CaretRight clickAction={this.props.actions}/>}
 				<div className="group-header" onClick={this.props.actions}>
 					{this.props.group.name}
 				</div>
