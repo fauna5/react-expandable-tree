@@ -9,7 +9,7 @@ frame.className = 'container'
 
 document.body.appendChild(frame)
 
-const data = {
+const initialData = {
 	groups: [
 		{
 			name: 'Japan',
@@ -42,34 +42,13 @@ const data = {
 	]
 }
 
-function click(event) {
-	const groupName = findParentWithTag(event.target, 'div').querySelector('.group-header').innerText
-	data.groups.map((group) => {
-		if(group.name === groupName && !group.selected) {
-			group.selected = true
-		} else {
-			group.selected = false
-		}
-		return group
-	})
-	render()
-}
-
-function findParentWithTag(el, tag) {
-	let element = el
-	const upperCaseTag = tag.toUpperCase()
-	while (element.parentNode) {
-		element = element.parentNode
-		if (element.tagName === upperCaseTag) {
-			return element
-		}
-	}
-	return null
+function selected(itemSelected) {
+	console.log('%s was clicked', itemSelected)
 }
 
 function render() {
 	ReactDOM.render(
-		<Nav data={data} actions={click}/>,
+		<Nav data={initialData} onItemSelected={selected}/>,
 		frame
 	)
 }
