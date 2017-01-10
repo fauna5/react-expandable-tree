@@ -22,7 +22,7 @@ class Nav extends React.Component {
 	render() {
 		const groups = []
 		this.state.data.groups.forEach(function(group) {
-			groups.push(<Group key={group.name} group={group} path="" onItemSelected={this.onItemSelected}/>)
+			groups.push(<Group key={group.name} userData={this.props.userData} group={group} path="" onItemSelected={this.onItemSelected}/>)
 		}, this)
 		return (
 			<div className="nav">

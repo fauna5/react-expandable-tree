@@ -9,7 +9,7 @@ class Group extends React.Component {
 		const clients = []
 		if(this.props.group.companies) {
 			this.props.group.companies.forEach(function(client) {
-				clients.push(<Client client={client} key={client.name}/>)
+				clients.push(<Client client={client} userData={this.props.userData} key={client.name}/>)
 			}, this)
 		}
 
@@ -17,7 +17,7 @@ class Group extends React.Component {
 		if(this.props.group.groups) {
 			const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
 			this.props.group.groups.forEach(function(group) {
-				groups.push(<Group key={group.name} group={group} path={path} onItemSelected={this.props.onItemSelected}/>)
+				groups.push(<Group key={group.name} userData={this.props.userData} group={group} path={path} onItemSelected={this.props.onItemSelected}/>)
 			}, this)
 		}
 
@@ -30,10 +30,10 @@ class Group extends React.Component {
 					{this.props.group.name}
 				</div>
 				<Collapse isOpened={this.props.group.selected || false}>
-					<div className="client-container"> {/* TODO - needed? */}
+					<div className="client-container"> 
 						{clients}
 					</div>
-					<div className="group-container" style={{'marginLeft': '20px'}}>
+					<div className="group-container">
 						{groups}
 					</div>
 				</Collapse>

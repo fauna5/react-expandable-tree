@@ -26,12 +26,14 @@ body {
 	background-color: #3d3d3d;
 }
 
-.group-header:hover {
+.group-header:hover
+.client-header:hover {
 	background-color: #252525;
 }
 
-.client-container {
-	padding-left: 40px;
+.client-container,
+.group-container {
+	padding-left: 30px;
 }
 
 .group svg {
@@ -42,7 +44,8 @@ body {
 	fill: white;
 }
 
-.selected > .group-header {
+.selected > .group-header,
+.selected > .client-header {
 	background-color: black;
 }
 
@@ -63,14 +66,22 @@ body {
 .client-header {
 	padding: 10px 10px 10px 40px;
 	display: inline-block;
-	width: 70%;
-}
-
-.client:hover {
-	background-color: #252525;
+	box-sizing: border-box;
+	width: 100%;
 }
 
 .client-active {
-	display: inline-block;
-	width: 10%;
+	float: right;
+    padding-right: 10px;
+}
+
+.user {
+	padding: 10px 10px 10px 40px;
+	font-size: 14px;
+}
+
+.group-header:hover,
+.client-header:hover,
+.user:hover {
+	background-color: #252525;
 }

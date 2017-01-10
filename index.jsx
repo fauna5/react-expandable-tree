@@ -9,6 +9,24 @@ frame.className = 'container'
 
 document.body.appendChild(frame)
 
+const userData = [
+	{
+		firstName: 'User',
+		lastName: 'One',
+		userName: 'user1@caplin.com'
+	},
+	{
+		firstName: 'User',
+		lastName: 'Two',
+		userName: 'user2@caplin.com'
+	},
+	{
+		firstName: 'User',
+		lastName: 'Three',
+		userName: 'user3@caplin.com'
+	}
+]
+
 const initialData = {
 	groups: [
 		{
@@ -108,7 +126,7 @@ function selected(itemSelected) {
 
 function render() {
 	ReactDOM.render(
-		<Nav data={initialData} onItemSelected={selected}/>,
+		<Nav data={initialData} userData={userData} onItemSelected={selected}/>,
 		frame
 	)
 }
