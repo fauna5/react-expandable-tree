@@ -13,30 +13,90 @@ const initialData = {
 	groups: [
 		{
 			name: 'Japan',
-			companies: [
-				{name: 'Asahi'},
-				{name: 'Mitsubishi'},
-				{name: 'SONY'}
+			groups: [
+				{
+					name: 'Automotive',
+					companies: [
+						{name: 'Mitsubishi'},
+						{name: 'Nissan'},
+						{name: 'Toyota'}
+					]
+				},
+				{
+					name: 'Electronics',
+					companies: [
+						{name: 'Canon'},
+						{name: 'Casio'},
+						{name: 'SONY'}
+					]
+				},
+				{
+					name: 'Food',
+					companies: [
+						{name: 'Asahi'},
+						{name: 'Nissin'},
+						{name: 'Sapporo'}
+					]
+				}
 			]
 		},
 		{
 			name: 'UK',
 			selected: true,
-			companies: [
+			groups: [
 				{
-					name: 'Aadvark',
-					selected: true
+					name: 'Automotive',
+					companies: [
+						{name: 'Ariel'},
+						{name: 'Caterham'},
+						{name: 'TVR'}
+					]
 				},
-				{name: 'Ariel'},
-				{name: 'Tunnocks'}
+				{
+					name: 'Electronics',
+					companies: [
+						{name: 'Bush'},
+						{name: 'Dyson'},
+						{name: 'Russell Hobbs'}
+					]
+				},
+				{
+					name: 'Food',
+					companies: [
+						{name: 'Bovril'},
+						{name: 'Findus'},
+						{name: 'Quorn'}
+					]
+				}
 			]
 		},
 		{
 			name: 'USA',
-			companies: [
-				{name: 'Coca Cola'},
-				{name: 'Hersheys'},
-				{name: 'Ford'}
+			groups: [
+				{
+					name: 'Automotive',
+					companies: [
+						{name: 'Cadillac'},
+						{name: 'Ford'},
+						{name: 'General Motors'}
+					]
+				},
+				{
+					name: 'Electronics',
+					companies: [
+						{name: 'Apple'},
+						{name: 'Bose'},
+						{name: 'Dell'}
+					]
+				},
+				{
+					name: 'Food',
+					companies: [
+						{name: 'Coca Cola'},
+						{name: 'Ben & Jerry\'s'},
+						{name: 'Mars'}
+					]
+				}
 			]
 		}
 	]

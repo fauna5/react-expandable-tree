@@ -42,7 +42,7 @@ body {
 	fill: white;
 }
 
-.selected .group-header {
+.selected > .group-header {
 	background-color: black;
 }
 
