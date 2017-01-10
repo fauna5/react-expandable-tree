@@ -26,7 +26,6 @@ class Nav extends React.Component {
 		}, this)
 		return (
 			<div className="nav">
-				<p>Groups</p>
 				{groups}
 			</div>
 		)
@@ -45,6 +44,7 @@ class Nav extends React.Component {
 	}
 
 	getGroupFromObject(path, data, selectedGroupName) {
+
 		const parts = path.split('.')
 		let currentLevel = data
 		if(parts[0] != "") {
@@ -72,6 +72,7 @@ class Nav extends React.Component {
 		const newSelectedState = currentLevel.groups.map((group) => {
 			if(group.name === selectedGroupName && !group.selected) {
 				group.selected = true
+				group.active = true
 			} else {
 				group.selected = false
 			}

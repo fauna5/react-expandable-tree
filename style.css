@@ -16,13 +16,12 @@ body {
 }
 
 .group {	
-	margin-bottom: 2px;
 	position: relative;
 }
 
 .group-header {
 	padding: 10px 10px 10px 40px;
-	margin-bottom: 2px;
+	border-bottom: 2px solid #4a4a4a;
 	background-color: #3d3d3d;
 }
 
@@ -32,11 +31,12 @@ body {
 }
 
 .client-container,
-.group-container {
+.group-container,
+.user-container {
 	padding-left: 30px;
 }
 
-.group svg {
+.group > svg {
 	width: 27px;
     position: absolute;
     top: 6px;
@@ -46,16 +46,20 @@ body {
 
 .selected > .group-header,
 .selected > .client-header {
-	background-color: black;
+	background-color: #55879d;
 }
 
-.client {
-	background-color: #3d3d3d;
-	margin-bottom: 2px;
+.selected > .group-header:hover,
+.selected > .client-header:hover {
+	background-color: #437488;
+}
+
+.client-header {
+	border-bottom: 2px solid #4a4a4a;
 	position: relative;
 }
 
-.client svg {
+.client-header > svg {
 	width: 27px;
     position: absolute;
     top: 6px;
@@ -63,8 +67,14 @@ body {
 	fill: white;
 }
 
+.client-header > svg.building {
+    height: 28px;
+    left: 34px;
+}
+
 .client-header {
-	padding: 10px 10px 10px 40px;
+	background-color: #3d3d3d;
+	padding: 10px 10px 10px 70px;
 	display: inline-block;
 	box-sizing: border-box;
 	width: 100%;
@@ -76,12 +86,32 @@ body {
 }
 
 .user {
-	padding: 10px 10px 10px 40px;
+	background-color: #3d3d3d;
+	padding: 10px 10px 10px 45px;
 	font-size: 14px;
+	border-bottom: 2px solid #4a4a4a;
+	position: relative;
+}
+
+.user > svg {
+	width: 27px;
+    height: 28px;
+    position: absolute;
+    top: 12px;
+    left: 9px;
+    fill: white;
 }
 
 .group-header:hover,
 .client-header:hover,
 .user:hover {
 	background-color: #252525;
+}
+
+.first-name {
+	padding-left: 5px;
+}
+
+.user-name {
+	font-weight: italic;
 }
