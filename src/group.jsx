@@ -7,27 +7,32 @@ import React from 'react'
 class Group extends React.Component {
 	render() {
 		const clients = []
+		const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
+
 		if(this.props.group.companies) {
 			this.props.group.companies.forEach(function(client) {
-				clients.push(<Client client={client} userData={this.props.userData} key={client.name}/>)
+				clients.push(<Client client={client} path={path} userData={this.props.userData} key={client.name}/>)
 			}, this)
 		}
 
 		const groups = []
 		if(this.props.group.groups) {
-			const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
 			this.props.group.groups.forEach(function(group) {
 				groups.push(<Group key={group.name} userData={this.props.userData} group={group} path={path} onItemSelected={this.props.onItemSelected}/>)
 			}, this)
 		}
 
+		const padding = this.props.path === "" ? 0 : (this.props.path.split('.').length * 20)
+
 		const onClickFunction = () => this.props.onItemSelected(this.props.path, this.props.group.name)
 
 		return (
 			<div className={'group ' + (this.props.group.selected === true ? 'selected' : '')}>
-				{this.props.group.selected === true ? <CaretDown clickAction={onClickFunction}/> : <CaretRight clickAction={onClickFunction}/>}
-				<div className="group-header" onClick={onClickFunction}>
-					{this.props.group.name}
+				<div className="group-panel" onClick={onClickFunction} style={{'paddingLeft': padding + 'px'}}>
+					{this.props.group.selected === true ? <CaretDown/> : <CaretRight/>}
+					<div className="group-header">
+						{this.props.group.name}
+					</div>
 				</div>
 				<Collapse isOpened={this.props.group.selected || false}>
 					<div className="client-container"> 

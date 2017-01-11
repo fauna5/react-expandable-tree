@@ -22,25 +22,22 @@ body {
 
 .group-header {
 	padding: 7px;
-	padding-left: 28px;
+	padding-left: 23px;
 }
 
-.client-container,
-.group-container,
-.user-container {
-	padding-left: 20px;
+.group-panel {
+	position: relative;
 }
 
-.group > svg,
-.client-header > svg {
+.group .caret,
+.client-header .caret {
 	width: 20px;
     position: absolute;
     top: 6px;
-    left: 4px;
 	fill: #eeeeee;
 }
 
-.selected > .group-header,
+.selected > .group-panel ,
 .selected > .client-header {
 	background-color: #394f59;
 	color: #eeeeee;
@@ -56,13 +53,18 @@ body {
 }
 
 .client-header > svg.building {
-    height: 20px;
-    left: 25px;
+    width: 20px;
+	height: 20px;
+    left: 27px;
+	top: 5px;
+	fill: #eeeeee;
+	position: absolute;
 }
 
 .client-header {
 	background-color: #3d3d3d;
-	padding: 7px 7px 7px 53px;
+	padding: 7px;
+	padding-top: 8px;
 	display: inline-block;
 	box-sizing: border-box;
 	width: 100%;
@@ -73,19 +75,22 @@ body {
     padding-right: 7px;
 }
 
+.clientName {
+	padding-left: 44px;
+}
+
 .user {
 	background-color: #3d3d3d;
-	padding: 7px 7px 7px 34px;
+	padding: 7px;
 	font-size: 11px;
 	position: relative;
 }
 
-.user > svg {
+.user-panel > svg {
 	width: 20px;
     height: 20px;
     position: absolute;
     top: 10px;
-    left: 5px;
     fill: #eeeeee;
 }
 
@@ -101,4 +106,9 @@ body {
 
 .user-name {
 	font-weight: italic;
+	padding-left: 30px;
+}
+
+.fullname {
+	padding-left: 30px;
 }
