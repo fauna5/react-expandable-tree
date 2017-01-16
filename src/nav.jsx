@@ -10,11 +10,11 @@ class Nav extends React.Component {
 		}
 		this.onItemSelected = this.onItemSelected.bind(this)
 		this.findParentWithTag = this.findParentWithTag.bind(this)
-		this.getGroupFromObject = this.getGroupFromObject.bind(this)
+		this.getGroupFromObject = this.updateSelectedStatus.bind(this)
 	}
 
 	onItemSelected(path, groupName) {
-		const updatedData = this.getGroupFromObject(path, this.state.data, groupName)
+		const updatedData = this.updateSelectedStatus(path, this.state.data, groupName)
 		this.setState({data: updatedData})
 		this.state.itemSelectedCallBack(groupName)
 	}
@@ -43,42 +43,42 @@ class Nav extends React.Component {
 		return null
 	}
 
-	getGroupFromObject(path, data, selectedGroupName) {
+	updateSelectedStatus(path, data, itemName) {
 
-		const parts = path.split('.')
+		const pathItems = path.split('.')
 		let currentLevel = data
-		if(parts[0] != "") {
-			while (parts.length > 0) {
-				let groupNameToFind = parts.shift()
-				let groupsToSearch = currentLevel.groups
-				let foundGroup = null
-				
-				for (var i = 0; i < groupsToSearch.length; i++) {
-					var group = groupsToSearch[i];
-					if(group.name === groupNameToFind) {
-						foundGroup = group
+		if(pathItems[0] != "") {
+			while (pathItems.length > 0) {
+				let itemNameToFInd = pathItems.shift()
+				let itemsToSearch = currentLevel.groups || currentLevel.clients
+				let foundItem = null
+
+				for (var i = 0; i < itemsToSearch.length; i++) {
+					var item = itemsToSearch[i]
+					if(item.name === itemNameToFInd) {
+						foundItem = item
 						break
 					}
 				}
 
-				if(foundGroup) {
-					currentLevel = foundGroup
+				if(foundItem) {
+					currentLevel = foundItem
 				} else {
 					return null
 				}
 			}
-		}		
+		}
 
-		const newSelectedState = currentLevel.groups.map((group) => {
-			if(group.name === selectedGroupName && !group.selected) {
-				group.selected = true
-				group.active = true
+		let list = currentLevel.groups || currentLevel.clients
+		list = list.map((listItem) => {
+			if(listItem.name === itemName && !listItem.selected) {
+				listItem.selected = true
+				listItem.active = true
 			} else {
-				group.selected = false
+				listItem.selected = false
 			}
-			return group
+			return listItem
 		})
-		currentLevel.groups = newSelectedState
 		return data
 	}
 }

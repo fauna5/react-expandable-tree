@@ -1,5 +1,4 @@
-import CaretRight from './caretRight.jsx'
-import CaretDown from './caretDown.jsx'
+import Caret from './caret.jsx'
 import Collapse from 'react-collapse'
 import React from 'react'
 import User from './user.jsx'
@@ -15,7 +14,8 @@ class Client extends React.Component {
 	}
 
 	headerClicked() {
-		this.setState({opened: !this.state.opened})
+		// this.setState({opened: !this.state.opened})
+		this.props.onItemSelected(this.props.path, this.props.client.name)
 	}
 
 
@@ -23,22 +23,22 @@ class Client extends React.Component {
 		const users = []
 		this.props.userData.forEach(function(user) {
 			users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user}></User>)
-		}, this); 
+		}, this)
 
 		const indent = (this.props.path.split('.').length * 20) + 'px'
 
 		return (
-			<div className={'client ' + (this.state.opened ? 'selected' : '')}>
+			<div className={'client ' + (this.props.client.selected ? 'selected' : '')}>
 				<div className="client-panel" style={{paddingLeft: indent}} onClick={this.headerClicked}>
 					<div className="client-header">
-						{this.state.opened ? <CaretDown/> : <CaretRight/>}
+						<Caret direction={this.props.client.selected ? 'down' : 'right'}/>
 						{buildingSvg}
 						<span className="clientName">{this.props.client.name}</span>
 						<span className="client-active">ACTIVE</span>
 					</div>
 				</div>
-				<Collapse isOpened={this.state.opened}>
-					<div className="user-container">					
+				<Collapse isOpened={this.props.client.selected || false}>
+					<div className="user-container">
 						{users}
 					</div>
 				</Collapse>

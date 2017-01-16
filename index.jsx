@@ -34,7 +34,7 @@ const initialData = {
 			groups: [
 				{
 					name: 'Automotive',
-					companies: [
+					clients: [
 						{name: 'Mitsubishi'},
 						{name: 'Nissan'},
 						{name: 'Toyota'}
@@ -42,7 +42,7 @@ const initialData = {
 				},
 				{
 					name: 'Electronics',
-					companies: [
+					clients: [
 						{name: 'Canon'},
 						{name: 'Casio'},
 						{name: 'SONY'}
@@ -50,7 +50,7 @@ const initialData = {
 				},
 				{
 					name: 'Food',
-					companies: [
+					clients: [
 						{name: 'Asahi'},
 						{name: 'Nissin'},
 						{name: 'Sapporo'}
@@ -64,7 +64,7 @@ const initialData = {
 			groups: [
 				{
 					name: 'Automotive',
-					companies: [
+					clients: [
 						{name: 'Ariel'},
 						{name: 'Caterham'},
 						{name: 'TVR'}
@@ -72,7 +72,7 @@ const initialData = {
 				},
 				{
 					name: 'Electronics',
-					companies: [
+					clients: [
 						{name: 'Bush'},
 						{name: 'Dyson'},
 						{name: 'Russell Hobbs'}
@@ -80,7 +80,7 @@ const initialData = {
 				},
 				{
 					name: 'Food',
-					companies: [
+					clients: [
 						{name: 'Bovril'},
 						{name: 'Findus'},
 						{name: 'Quorn'}
@@ -93,7 +93,7 @@ const initialData = {
 			groups: [
 				{
 					name: 'Automotive',
-					companies: [
+					clients: [
 						{name: 'Cadillac'},
 						{name: 'Ford'},
 						{name: 'General Motors'}
@@ -101,7 +101,7 @@ const initialData = {
 				},
 				{
 					name: 'Electronics',
-					companies: [
+					clients: [
 						{name: 'Apple'},
 						{name: 'Bose'},
 						{name: 'Dell'}
@@ -109,7 +109,7 @@ const initialData = {
 				},
 				{
 					name: 'Food',
-					companies: [
+					clients: [
 						{name: 'Coca Cola'},
 						{name: 'Ben & Jerry\'s'},
 						{name: 'Mars'}
