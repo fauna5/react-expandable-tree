@@ -17,7 +17,6 @@ body {
 .group {	
 	position: relative;
 	background-color: #3d3d3d;
-	border-bottom: 2px solid #4a4a4a;
 }
 
 .group-header {
@@ -27,6 +26,7 @@ body {
 
 .group-panel {
 	position: relative;
+	border-bottom: 2px solid #4a4a4a;
 }
 
 .group .caret,
@@ -59,6 +59,10 @@ body {
 	top: 5px;
 	fill: #eeeeee;
 	position: absolute;
+}
+
+.client-container {
+	border-bottom: 2px solid #4a4a4a;
 }
 
 .client-header {

@@ -5,15 +5,15 @@ import React from 'react'
 
 class Group extends React.Component {
 	render() {
-		const clients = []
+		let clients = []
 		const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
 
 		if(this.props.group.clients) {
 			this.props.group.clients.forEach(function(client) {
 				clients.push(<Client key={client.name} userData={this.props.userData} client={client} path={path} onItemSelected={this.props.onItemSelected}/>)
 			}, this)
+			clients = <div className="client-container">{clients}</div>
 		}
-
 		const groups = []
 		if(this.props.group.groups) {
 			this.props.group.groups.forEach(function(group) {
@@ -34,9 +34,7 @@ class Group extends React.Component {
 					</div>
 				</div>
 				<Collapse isOpened={this.props.group.selected || false}>
-					<div className="client-container">
-						{clients}
-					</div>
+					{clients}
 					<div className="group-container">
 						{groups}
 					</div>
