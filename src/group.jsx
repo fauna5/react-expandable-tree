@@ -23,7 +23,7 @@ class Group extends React.Component {
 
 		const padding = this.props.path === "" ? 0 : this.props.path.split('.').length * 20
 
-		const onClickFunction = () => this.props.onItemSelected(this.props.path, this.props.group.name)
+		const onClickFunction = () => this.props.onItemSelected(this.props.path, this.props.group.id)
 
 		return (
 			<div className={'group ' + (this.props.group.selected === true ? 'selected' : '')}>

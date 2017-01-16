@@ -72,7 +72,7 @@ class Nav extends React.Component {
 			//it's not a leaf node, close other items in the group
 			let list = currentLevel.groups || currentLevel.clients
 			list = list.map((listItem) => {
-				if(listItem.name === itemName && !listItem.selected) {
+				if(listItem.id === itemName && !listItem.selected) {
 					listItem.selected = true
 				} else {
 					listItem.selected = false

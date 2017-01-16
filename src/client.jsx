@@ -13,9 +13,8 @@ class Client extends React.Component {
 	}
 
 	headerClicked() {
-		this.props.onItemSelected(this.props.path, this.props.client.name)
+		this.props.onItemSelected(this.props.path, this.props.client.id)
 	}
-
 
 	render() {
 		const users = []

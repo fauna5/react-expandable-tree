@@ -6,8 +6,13 @@ require('./style.css')
 
 const frame = document.createElement('div')
 frame.className = 'container'
-
 document.body.appendChild(frame)
+
+const mainPanel = document.createElement('div')
+mainPanel.className = 'main'
+mainPanel.innerText = 'director'
+document.body.appendChild(mainPanel)
+
 
 const userData = [
 	{
@@ -30,89 +35,182 @@ const userData = [
 const initialData = {
 	groups: [
 		{
+			id: 1,
 			name: 'Japan',
 			groups: [
 				{
+					id: 2,
 					name: 'Automotive',
 					clients: [
-						{name: 'Mitsubishi'},
-						{name: 'Nissan'},
-						{name: 'Toyota'}
+						{
+							id: 3,
+							name: 'Mitsubishi'
+						},
+						{
+							id: 4,
+							name: 'Nissan'
+						},
+						{
+							id: 5,
+							name: 'Toyota'
+						}
 					]
 				},
 				{
+					id: 6,
 					name: 'Electronics',
 					clients: [
-						{name: 'Canon'},
-						{name: 'Casio'},
-						{name: 'SONY'}
+						{
+							id: 7,
+							name: 'Canon'
+						},
+						{
+							id: 8,
+							name: 'Casio'
+						},
+						{
+							id: 9,
+							name: 'SONY'
+						}
 					]
 				},
 				{
+					id: 10,
 					name: 'Food',
 					clients: [
-						{name: 'Asahi'},
-						{name: 'Nissin'},
-						{name: 'Sapporo'}
+						{
+							id: 11,
+							name: 'Asahi'
+						},
+						{
+							id: 12,
+							name: 'Nissin'
+						},
+						{
+							id: 13,
+							name: 'Sapporo'
+						}
 					]
 				}
 			]
 		},
 		{
+			id: 13,
 			name: 'UK',
 			selected: true,
 			groups: [
 				{
+					id: 14,
 					name: 'Automotive',
 					clients: [
-						{name: 'Ariel'},
-						{name: 'Caterham'},
-						{name: 'TVR'}
+						{
+							id: 15,
+							name: 'Ariel'
+						},
+						{
+							id: 16,
+							name: 'Caterham'
+						},
+						{
+							id: 17,
+							name: 'TVR'
+						}
 					]
 				},
 				{
+					id: 18,
 					name: 'Electronics',
 					clients: [
-						{name: 'Bush'},
-						{name: 'Dyson'},
-						{name: 'Russell Hobbs'}
+						{
+							id: 19,
+							name: 'Bush'
+						},
+						{
+							id: 21,
+							name: 'Dyson'
+						},
+						{
+							id: 22,
+							name: 'Russell Hobbs'
+						}
 					]
 				},
 				{
+					id: 23,
 					name: 'Food',
 					clients: [
-						{name: 'Bovril'},
-						{name: 'Findus'},
-						{name: 'Quorn'}
+						{
+							id: 24,
+							name: 'Bovril'
+						},
+						{
+							id: 25,
+							name: 'Findus'
+						},
+						{
+							id: 26,
+							name: 'Quorn'
+						}
 					]
 				}
 			]
 		},
 		{
+			id: 27,
 			name: 'USA',
 			groups: [
 				{
+					id: 28,
 					name: 'Automotive',
 					clients: [
-						{name: 'Cadillac'},
-						{name: 'Ford'},
-						{name: 'General Motors'}
+						{
+							id: 29,
+							name: 'Cadillac'
+						},
+						{
+							id: 30,
+							name: 'Ford'
+						},
+						{
+							id: 31,
+							name: 'General Motors'
+						}
 					]
 				},
 				{
+					id: 32,
 					name: 'Electronics',
 					clients: [
-						{name: 'Apple'},
-						{name: 'Bose'},
-						{name: 'Dell'}
+						{
+							id: 32,
+							name: 'Apple'
+						},
+						{
+							id: 33,
+							name: 'Bose'
+						},
+						{
+							id: 33,
+							name: 'Dell'
+						}
 					]
 				},
 				{
+					id: 34,
 					name: 'Food',
 					clients: [
-						{name: 'Coca Cola'},
-						{name: 'Ben & Jerry\'s'},
-						{name: 'Mars'}
+						{
+							id: 35,
+							name: 'Coca Cola'
+						},
+						{
+							id: 36,
+							name: 'Ben & Jerry\'s'
+						},
+						{
+							id: 37,
+							name: 'Mars'
+						}
 					]
 				}
 			]
@@ -121,7 +219,7 @@ const initialData = {
 }
 
 function selected(itemSelected) {
-	console.log('%s was clicked', itemSelected)
+	mainPanel.innerText = itemSelected + ' was clicked'
 }
 
 function render() {
