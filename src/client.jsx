@@ -9,12 +9,10 @@ class Client extends React.Component {
 
 	constructor() {
 		super()
-		this.state = {opened: false}
 		this.headerClicked = this.headerClicked.bind(this)
 	}
 
 	headerClicked() {
-		// this.setState({opened: !this.state.opened})
 		this.props.onItemSelected(this.props.path, this.props.client.name)
 	}
 
