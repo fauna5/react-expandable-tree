@@ -6,6 +6,7 @@ class Nav extends React.Component {
 		super(props)
 		this.state = {
 			data: this.props.data,
+			userData: this.props.userData,
 			itemSelectedCallBack: this.props.onItemSelected
 		}
 		this.onItemSelected = this.onItemSelected.bind(this)
@@ -13,16 +14,15 @@ class Nav extends React.Component {
 		this.getGroupFromObject = this.updateSelectedStatus.bind(this)
 	}
 
-	onItemSelected(path, groupName) {
-		const updatedData = this.updateSelectedStatus(path, this.state.data, groupName)
-		this.setState({data: updatedData})
-		this.state.itemSelectedCallBack(groupName)
+	onItemSelected(path, itemName) {
+		this.updateSelectedStatus(path, itemName)
+		this.state.itemSelectedCallBack(itemName)
 	}
 
 	render() {
 		const groups = []
 		this.state.data.groups.forEach(function(group) {
-			groups.push(<Group key={group.name} userData={this.props.userData} group={group} path="" onItemSelected={this.onItemSelected}/>)
+			groups.push(<Group key={group.name} userData={this.state.userData} group={group} path="" onItemSelected={this.onItemSelected}/>)
 		}, this)
 		return (
 			<div className="nav">
@@ -43,10 +43,9 @@ class Nav extends React.Component {
 		return null
 	}
 
-	updateSelectedStatus(path, data, itemName) {
-
+	updateSelectedStatus(path, itemName) {
 		const pathItems = path.split('.')
-		let currentLevel = data
+		let currentLevel = this.state.data
 		if(pathItems[0] != "") {
 			while (pathItems.length > 0) {
 				let itemNameToFInd = pathItems.shift()
@@ -64,22 +63,34 @@ class Nav extends React.Component {
 				if(foundItem) {
 					currentLevel = foundItem
 				} else {
-					return null
+					return
 				}
 			}
 		}
 
-		let list = currentLevel.groups || currentLevel.clients
-		list = list.map((listItem) => {
-			if(listItem.name === itemName && !listItem.selected) {
-				listItem.selected = true
-				listItem.active = true
-			} else {
-				listItem.selected = false
-			}
-			return listItem
-		})
-		return data
+		if(currentLevel.groups || currentLevel.clients){
+			//it's not a leaf node, close other items in the group
+			let list = currentLevel.groups || currentLevel.clients
+			list = list.map((listItem) => {
+				if(listItem.name === itemName && !listItem.selected) {
+					listItem.selected = true
+				} else {
+					listItem.selected = false
+				}
+				return listItem
+			})
+			this.setState({data: this.state.data})
+		} else {
+			const updatedData = this.state.userData.map((user) => {
+				if(user.userName === itemName && !user.selected) {
+					user.selected = true
+				} else {
+					user.selected = false
+				}
+				return user
+			})
+			this.setState({userData: updatedData})
+		}
 	}
 }
 

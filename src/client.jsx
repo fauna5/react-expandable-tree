@@ -20,7 +20,7 @@ class Client extends React.Component {
 	render() {
 		const users = []
 		this.props.userData.forEach(function(user) {
-			users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user}></User>)
+			users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user}onItemSelected={this.props.onItemSelected}></User>)
 		}, this)
 
 		const indent = (this.props.path.split('.').length * 20) + 'px'
