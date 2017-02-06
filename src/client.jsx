@@ -19,15 +19,15 @@ class Client extends React.Component {
 
 		const indent = this.props.path.split('.').length * 20
 
-		const users = []
+		let users = []
 		if(this.props.userData.length == 0 && this.props.client.selected) {
-			users.push(<div key={'loading'} className="users-loading" style={{paddingLeft: (indent + 50) + 'px'}}>
+			users = <div key={'loading'} className="users-loading" style={{paddingLeft: (indent + 50) + 'px'}}>
 					<span className="spinner">loading...</span>
-				</div>)
+				</div>
 		} else {
-			this.props.userData.forEach(function(user) {
-				users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user} onItemSelected={this.props.onItemSelected}/>)
-			}, this)
+			users = this.props.userData.map((user) => {
+				return <User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user} onItemSelected={this.props.onItemSelected}/>
+			})
 		}
 
 		return (

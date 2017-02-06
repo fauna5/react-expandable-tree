@@ -5,7 +5,6 @@ import React from 'react'
 
 class Group extends React.Component {
 	render() {
-		let clients = []
 		const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
 
 		const padding = this.props.path === "" ? 0 : this.props.path.split('.').length * 20
@@ -25,23 +24,20 @@ class Group extends React.Component {
 					</div>
 				</div>
 				<Collapse isOpened={this.props.group.selected || false}>
-					{clients}
-
-					<div className="client-container">
-						{ this.props.group.clients && this.props.group.clients.map((client) => {
-							return (
+					{ this.props.group.clients && this.props.group.clients.map((client) => {
+						return (
+							<div className="client-container">
 								<Client key={client.name} userData={this.props.userData} client={client} path={path} onItemSelected={this.props.onItemSelected}/>
-							)
-						})}
-					</div>
-
-					<div className="group-container">
-						{this.props.group.groups && this.props.group.groups.map((group) => {
-							return (
+							</div>
+						)
+					})}
+					{this.props.group.groups && this.props.group.groups.map((group) => {
+						return (
+							<div className="group-container">
 								<Group key={group.name} userData={this.props.userData} group={group} path={path} onItemSelected={this.props.onItemSelected}/>
-							)
-						})}
-					</div>
+							</div>
+						)
+					})}
 				</Collapse>
 			</div>
 		)
