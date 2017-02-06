@@ -1,6 +1,6 @@
-import Caret from './caret.jsx'
 import Client from './client.jsx'
 import Collapse from 'react-collapse'
+import Icon from './icon.jsx'
 import React from 'react'
 
 class Group extends React.Component {
@@ -17,7 +17,7 @@ class Group extends React.Component {
 		<div className={'group ' + (this.props.group.selected === true ? 'selected' : '')}>
 				<div className="group-panel" style={this.props.group.selected === true ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}}>
 					<div className="group-caret" onClick={onExpand} style={{'paddingLeft': padding + 'px'}}>
-						<Caret direction={this.props.group.selected === true ? 'down' : 'right'}/>
+						<Icon style={this.props.group.selected === true ? 'caret-down' : 'caret-right'}/>
 					</div>
 					<div className="group-header" onClick={onSelected}>
 						{this.props.group.name}

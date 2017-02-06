@@ -1,5 +1,5 @@
-import Caret from './caret.jsx'
 import Collapse from 'react-collapse'
+import Icon from './icon.jsx'
 import React from 'react'
 import User from './user.jsx'
 
@@ -34,7 +34,7 @@ class Client extends React.Component {
 			<div className={'client ' + (this.props.client.selected ? 'selected' : '')}>
 				<div className="client-panel" style={{paddingLeft: indent + 'px'}} onClick={this.onSelected}>
 					<div className="client-header">
-						<Caret direction={this.props.client.selected ? 'down' : 'right'}/>
+						<Icon style={this.props.client.selected ? 'caret-down' : 'caret-right'}/>
 						{buildingSvg}
 						<span className="clientName">{this.props.client.name}</span>
 						<span className="client-active">ACTIVE</span>
