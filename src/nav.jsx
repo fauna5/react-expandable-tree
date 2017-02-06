@@ -26,7 +26,7 @@ class Nav extends React.Component {
 				return item.split('.').length !== fullPath.split('.').length
 			})
 			newExpandedPaths = [...newExpandedPaths, fullPath];
-			
+
 			if (type === 'client') {
 				this.props.onClientSelected(itemName)
 				this.setState({ userData: [] })
@@ -37,7 +37,7 @@ class Nav extends React.Component {
 			}
 		}
 		console.log(newExpandedPaths)
-		this.setState({expandedPaths: newExpandedPaths})
+		this.setState({ expandedPaths: newExpandedPaths })
 	}
 
 	onDataLoaded = (data) => {
@@ -49,21 +49,18 @@ class Nav extends React.Component {
 	}
 
 	render(data) {
-		if (!this.state.data) {
-			//loading
-			return (
-				<div className="nav">
-					<span className="spinner">loading...</span>
-				</div>
-			)
-		}
-		const groups = []
-		this.state.data.groups.forEach(function (group) {
-			groups.push(<Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />)
-		}, this)
 		return (
 			<div className="nav">
-				{groups}
+				{
+				!this.state.data ?
+					<div className="nav">
+						<span className="spinner">loading...</span>
+					</div>
+					:
+					this.state.data.groups.map((group) => {
+						return <Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />
+					})
+				}
 			</div>
 		)
 	}
