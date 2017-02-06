@@ -1,3 +1,5 @@
+
+
 .nav {
     color: #eeeeee;
     font-size: 14px;
@@ -7,22 +9,85 @@
 
 .group {
     background-color: #3d3d3d;
+    
+    .group-panel {
+        border-bottom: 2px solid #4a4a4a;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
     .group-caret {
         padding: 4px;
         height: 21px;
     }
+
+    .group-header {
+        padding: 7px;
+        flex-grow: 1;
+    }
+
+    .client-container {
+        border-bottom: 2px solid #4a4a4a;
+    }
 }
 
-.group-header {
+.client {
+    .client-header {
+        background-color: #3d3d3d;
+        padding: 7px;
+        padding-top: 8px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .client-name {
+        flex-grow: 1;
+        padding-left: 7px;
+    }
+
+    svg.building {
+        width: 18px;
+        height: 18px;
+        fill: #eeeeee;
+        padding-left: 2px;
+    }
+}
+
+.user {
+    background-color: #3d3d3d;
     padding: 7px;
-    flex-grow: 1;
-}
+    font-size: 11px;
 
-.group-panel {
-    border-bottom: 2px solid #4a4a4a;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
+    .users-loading {
+        padding: 4px;
+    }
+
+    .user-panel {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .user-panel>svg {
+        width: 20px;
+        height: 20px;
+        fill: #eeeeee;
+        padding-top: 2px;
+    }
+
+    .user-header {
+        padding-left: 8px;
+    }
+
+    .first-name {
+        padding-left: 5px;
+    }   
+
+    .user-name {
+        font-weight: italic;
+    }
 }
 
 .group .caret,
@@ -35,81 +100,4 @@
 .selected>.client-header {
     background-color: #394f59;
     color: #eeeeee;
-}
-
-.selected>.group-header:hover,
-.selected>.client-header:hover {
-    /*background-color: #2c5667;*/
-}
-
-.client-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.clientName {
-    flex-grow: 1;
-}
-
-.client-header>svg.building {
-    width: 18px;
-    height: 18px;
-    fill: #eeeeee;
-    padding-left: 2px;
-}
-
-.client-container {
-    border-bottom: 2px solid #4a4a4a;
-}
-
-.client-header {
-    background-color: #3d3d3d;
-    padding: 7px;
-    padding-top: 8px;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.client-active {
-    float: right;
-    padding-right: 7px;
-}
-
-.clientName {
-    padding-left: 7px;
-}
-
-.users-loading {
-    padding: 4px;
-}
-
-.user {
-    background-color: #3d3d3d;
-    padding: 7px;
-    font-size: 11px;
-}
-
-.user-panel {
-    display: flex;
-    flex-direction: row;
-}
-
-.user-header {
-	padding-left: 8px;
-}
-
-.user-panel>svg {
-    width: 20px;
-    height: 20px;
-    fill: #eeeeee;
-	padding-top: 2px;
-}
-
-.first-name {
-    padding-left: 5px;
-}
-
-.user-name {
-    font-weight: italic;
 }
