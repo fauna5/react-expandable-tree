@@ -3,7 +3,7 @@ import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
 import React from 'react'
 
-class Group extends React.Component {
+export default class Group extends React.Component {
 	render() {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
@@ -43,5 +43,3 @@ class Group extends React.Component {
 		)
 	}
 }
-
-export default Group

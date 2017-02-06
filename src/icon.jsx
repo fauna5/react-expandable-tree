@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Caret extends React.Component {
+export default class Caret extends React.Component {
 	render() {
 		switch (this.props.style) {
 		case "caret-down":
@@ -16,5 +16,3 @@ class Caret extends React.Component {
 		}
 	}
 }
-
-export default Caret

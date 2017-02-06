@@ -1,7 +1,7 @@
 import Icon from './icon.jsx'
 import React from 'react'
 
-class User extends React.Component {
+export default class User extends React.Component {
 
 	userClicked = () => {
 		this.props.onExpand(this.props.path, 'user', this.props.data.userName)
@@ -26,5 +26,3 @@ class User extends React.Component {
 		)
 	}
 }
-
-export default User

@@ -3,7 +3,7 @@ import Icon from './icon.jsx'
 import React from 'react'
 import User from './user.jsx'
 
-class Client extends React.Component {
+export default class Client extends React.Component {
 
 	onExpand = () => {
 		this.props.onExpand(this.props.path, 'client', this.props.client.id, false)
@@ -44,5 +44,3 @@ class Client extends React.Component {
 		)
 	}
 }
-
-export default Client

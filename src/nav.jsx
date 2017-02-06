@@ -1,7 +1,7 @@
 import Group from './group.jsx'
 import React from 'react'
 
-class Nav extends React.Component {
+export default class Nav extends React.Component {
 	constructor(props) {
 		super(props)
 
@@ -65,5 +65,3 @@ class Nav extends React.Component {
 		)
 	}
 }
-
-export default Nav
