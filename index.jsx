@@ -2,6 +2,7 @@ import Nav from './src/nav.jsx'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+require('./index-style.css')
 require('./style.css')
 
 const frame = document.createElement('div')
@@ -218,15 +219,34 @@ const initialData = {
 	]
 }
 
-function selected(itemSelected) {
+
+
+function onGroupSelected(itemSelected) {
 	mainPanel.innerText = itemSelected + ' was clicked'
 }
 
+function onClientSelected(itemSelected) {
+	mainPanel.innerText = itemSelected + ' was clicked'
+	setTimeout(() => {
+		component.onUserDataLoaded(userData)
+	}, 2000)
+}
+
+function onUserSelected(itemSelected) {
+	mainPanel.innerText = itemSelected + ' was clicked'
+}
+
+let component = null
+
 function render() {
-	ReactDOM.render(
-		<Nav data={initialData} userData={userData} onItemSelected={selected}/>,
+	component = ReactDOM.render(
+		<Nav onGroupSelected={onGroupSelected} onClientSelected={onClientSelected} onUserSelected={onUserSelected}/>,
 		frame
 	)
 }
 
 render()
+
+setTimeout(() => {
+	component.onDataLoaded(initialData)
+}, 1000)

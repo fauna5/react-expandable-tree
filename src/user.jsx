@@ -1,13 +1,9 @@
 import React from 'react'
 
 class User extends React.Component {
-	constructor() {
-		super()
-		this.userClicked = this.userClicked.bind(this)
-	}
-
-	userClicked() {
-		this.props.onItemSelected(this.props.path, this.props.data.userName)
+	
+	userClicked = () => {
+		this.props.onItemSelected(this.props.path, 'user', this.props.data.userName)
 	}
 
 	render() {

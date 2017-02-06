@@ -1,0 +1,18 @@
+body {
+	margin: 0px;
+	font-family: Helvetica, sans-serif
+}
+.container {
+	width: 333px;
+	height: 400px;
+	background-color: #4a4a4a;
+	float:left;
+}
+
+.main {
+	float:left;
+	height: 400px;
+	text-align: center;
+	padding-left: 50px;
+	padding-top: 50px;
+}

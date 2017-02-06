@@ -6,20 +6,41 @@ class Nav extends React.Component {
 		super(props)
 		this.state = {
 			data: this.props.data,
-			userData: this.props.userData,
-			itemSelectedCallBack: this.props.onItemSelected
+			userData: this.props.userData || [],
 		}
-		this.onItemSelected = this.onItemSelected.bind(this)
-		this.findParentWithTag = this.findParentWithTag.bind(this)
-		this.getGroupFromObject = this.updateSelectedStatus.bind(this)
 	}
 
-	onItemSelected(path, itemName) {
-		this.updateSelectedStatus(path, itemName)
-		this.state.itemSelectedCallBack(itemName)
+	onItemSelected = (path, type, itemName, selected) => {
+		this.updateSelectedStatus(path, itemName, selected)
+		if(selected) {
+			if(type === 'client'){
+				this.props.onClientSelected(itemName)
+				this.setState({userData: []})
+			} else if (type === 'user'){
+				this.props.onUserSelected(itemName)
+			} else if (type === 'group'){
+				this.props.onGroupSelected(itemName)
+			}
+		}
 	}
 
-	render() {
+	onDataLoaded = (data) => {
+		this.setState({data: data})
+	}
+
+	onUserDataLoaded = (data) => {
+		this.setState({userData: data})
+	}
+
+	render(data) {
+		if(!this.state.data) {
+			//loading
+			return (
+				<div className="nav">
+					<span className="spinner">loading...</span>
+				</div>
+			)
+		}
 		const groups = []
 		this.state.data.groups.forEach(function(group) {
 			groups.push(<Group key={group.name} userData={this.state.userData} group={group} path="" onItemSelected={this.onItemSelected}/>)
@@ -43,7 +64,7 @@ class Nav extends React.Component {
 		return null
 	}
 
-	updateSelectedStatus(path, itemName) {
+	updateSelectedStatus(path, itemName, selected) {
 		const pathItems = path.split('.')
 		let currentLevel = this.state.data
 		if(pathItems[0] != "") {
@@ -72,7 +93,7 @@ class Nav extends React.Component {
 			//it's not a leaf node, close other items in the group
 			let list = currentLevel.groups || currentLevel.clients
 			list = list.map((listItem) => {
-				if(listItem.id === itemName && !listItem.selected) {
+				if(listItem.id === itemName && (!listItem.selected || selected)) {
 					listItem.selected = true
 				} else {
 					listItem.selected = false

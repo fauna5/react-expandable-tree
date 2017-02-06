@@ -7,26 +7,32 @@ const buildingSvg = <svg className="building" xmlns="http://www.w3.org/2000/svg"
 
 class Client extends React.Component {
 
-	constructor() {
-		super()
-		this.headerClicked = this.headerClicked.bind(this)
+	onExpanded = () => {
+		this.props.onItemSelected(this.props.path, 'client', this.props.client.id, false)
 	}
 
-	headerClicked() {
-		this.props.onItemSelected(this.props.path, this.props.client.id)
+	onSelected = () => {
+		this.props.onItemSelected(this.props.path, 'client', this.props.client.id, true)
 	}
 
 	render() {
-		const users = []
-		this.props.userData.forEach(function(user) {
-			users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user}onItemSelected={this.props.onItemSelected}></User>)
-		}, this)
 
-		const indent = (this.props.path.split('.').length * 20) + 'px'
+		const indent = this.props.path.split('.').length * 20
+
+		const users = []
+		if(this.props.userData.length == 0 && this.props.client.selected) {
+			users.push(<div key={'loading'} className="users-loading" style={{paddingLeft: (indent + 50) + 'px'}}>
+					<span className="spinner">loading...</span>
+				</div>)
+		} else {
+			this.props.userData.forEach(function(user) {
+				users.push(<User key={user.userName} path={this.props.path + '.' + this.props.client.name} data={user} onItemSelected={this.props.onItemSelected}/>)
+			}, this)
+		}
 
 		return (
 			<div className={'client ' + (this.props.client.selected ? 'selected' : '')}>
-				<div className="client-panel" style={{paddingLeft: indent}} onClick={this.headerClicked}>
+				<div className="client-panel" style={{paddingLeft: indent + 'px'}} onClick={this.onSelected}>
 					<div className="client-header">
 						<Caret direction={this.props.client.selected ? 'down' : 'right'}/>
 						{buildingSvg}
