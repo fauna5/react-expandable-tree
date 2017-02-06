@@ -4,7 +4,7 @@ import React from 'react'
 class User extends React.Component {
 
 	userClicked = () => {
-		this.props.onItemSelected(this.props.path, 'user', this.props.data.userName)
+		this.props.onExpand(this.props.path, 'user', this.props.data.userName)
 	}
 
 	render() {

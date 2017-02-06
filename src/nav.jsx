@@ -4,36 +4,52 @@ import React from 'react'
 class Nav extends React.Component {
 	constructor(props) {
 		super(props)
+
 		this.state = {
 			data: this.props.data,
 			userData: this.props.userData || [],
+			expandedPaths: [], //TODO 
+			expandedItem: null
 		}
 	}
 
-	handleItemSelected = (path, type, itemName, selected) => {
-		this.updateSelectedStatus(path, itemName, selected)
-		if(selected) {
-			if(type === 'client'){
+	handleExpand = (path, type, itemName, expanded) => {
+		const fullPath = path ? path + '.' + itemName : itemName
+
+		let newExpandedPaths
+		if (this.state.expandedPaths.includes(fullPath)) { // remove if a close
+			newExpandedPaths = this.state.expandedPaths.filter((item) => {
+				return item !== fullPath
+			})
+		} else { // add and notify if it's an open
+			newExpandedPaths = this.state.expandedPaths.filter((item) => {
+				return item.split('.').length !== fullPath.split('.').length
+			})
+			newExpandedPaths = [...newExpandedPaths, fullPath];
+			
+			if (type === 'client') {
 				this.props.onClientSelected(itemName)
-				this.setState({userData: []})
-			} else if (type === 'user'){
+				this.setState({ userData: [] })
+			} else if (type === 'user') {
 				this.props.onUserSelected(itemName)
-			} else if (type === 'group'){
+			} else if (type === 'group') {
 				this.props.onGroupSelected(itemName)
 			}
 		}
+		console.log(newExpandedPaths)
+		this.setState({expandedPaths: newExpandedPaths})
 	}
 
 	onDataLoaded = (data) => {
-		this.setState({data: data})
+		this.setState({ data: data })
 	}
 
 	onUserDataLoaded = (data) => {
-		this.setState({userData: data})
+		this.setState({ userData: data })
 	}
 
 	render(data) {
-		if(!this.state.data) {
+		if (!this.state.data) {
 			//loading
 			return (
 				<div className="nav">
@@ -42,76 +58,14 @@ class Nav extends React.Component {
 			)
 		}
 		const groups = []
-		this.state.data.groups.forEach(function(group) {
-			groups.push(<Group key={group.name} userData={this.state.userData} group={group} path="" onItemSelected={this.handleItemSelected}/>)
+		this.state.data.groups.forEach(function (group) {
+			groups.push(<Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />)
 		}, this)
 		return (
 			<div className="nav">
 				{groups}
 			</div>
 		)
-	}
-
-	findParentWithTag(el, tag) {
-		let element = el
-		const upperCaseTag = tag.toUpperCase()
-		while (element.parentNode) {
-			element = element.parentNode
-			if (element.tagName === upperCaseTag) {
-				return element
-			}
-		}
-		return null
-	}
-
-	updateSelectedStatus(path, itemName, selected) {
-		const pathItems = path.split('.')
-		let currentLevel = this.state.data
-		if(pathItems[0] != "") {
-			while (pathItems.length > 0) {
-				let itemNameToFInd = pathItems.shift()
-				let itemsToSearch = currentLevel.groups || currentLevel.clients
-				let foundItem = null
-
-				for (var i = 0; i < itemsToSearch.length; i++) {
-					var item = itemsToSearch[i]
-					if(item.name === itemNameToFInd) {
-						foundItem = item
-						break
-					}
-				}
-
-				if(foundItem) {
-					currentLevel = foundItem
-				} else {
-					return
-				}
-			}
-		}
-
-		if(currentLevel.groups || currentLevel.clients){
-			//it's not a leaf node, close other items in the group
-			let list = currentLevel.groups || currentLevel.clients
-			list = list.map((listItem) => {
-				if(listItem.id === itemName && (!listItem.selected || selected)) {
-					listItem.selected = true
-				} else {
-					listItem.selected = false
-				}
-				return listItem
-			})
-			this.setState({data: this.state.data})
-		} else {
-			const updatedData = this.state.userData.map((user) => {
-				if(user.userName === itemName && !user.selected) {
-					user.selected = true
-				} else {
-					user.selected = false
-				}
-				return user
-			})
-			this.setState({userData: updatedData})
-		}
 	}
 }
 

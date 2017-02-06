@@ -5,39 +5,39 @@ import React from 'react'
 
 class Group extends React.Component {
 	render() {
-		const path = this.props.path ? this.props.path + '.' + this.props.group.name : this.props.group.name
+		const path = this.props.path + '.' + this.props.group.id
+		const treeLevel = this.props.path.split('.').length - 1
+		const padding = treeLevel * 20
+		const bgCol = treeLevel * 23
+		const expanded = this.props.expandedPaths.includes(path)
 
-		const padding = this.props.path === "" ? 0 : this.props.path.split('.').length * 20
-		const bgCol = this.props.path === "" ? 0 : this.props.path.split('.').length * 23
-
-		const onExpand = () => this.props.onItemSelected(this.props.path, 'group', this.props.group.id, false)
-		const onSelected = () => this.props.onItemSelected(this.props.path, 'group', this.props.group.id, true)
+		const onExpand = () => this.props.onExpand(this.props.path, 'group', this.props.group.id, false)
 
 		return (
-		<div className={'group ' + (this.props.group.selected === true ? 'selected' : '')}>
-				<div className="group-panel" style={this.props.group.selected === true ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}}>
+			<div className={'group ' + (expanded ? 'expanded' : '')}>
+				<div className="group-panel" style={expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}}>
 					<div className="group-caret" onClick={onExpand} style={{'paddingLeft': padding + 'px'}}>
-						<Icon style={this.props.group.selected === true ? 'caret-down' : 'caret-right'}/>
+						<Icon style={expanded === true ? 'caret-down' : 'caret-right'} />
 					</div>
-					<div className="group-header" onClick={onSelected}>
+					<div className="group-header" onClick={onExpand}>
 						{this.props.group.name}
 					</div>
 				</div>
-				<Collapse isOpened={this.props.group.selected || false}>
-					{ this.props.group.clients && this.props.group.clients.map((client) => {
-						return (
-							<div className="client-container">
-								<Client key={client.name} userData={this.props.userData} client={client} path={path} onItemSelected={this.props.onItemSelected}/>
-							</div>
-						)
-					})}
-					{this.props.group.groups && this.props.group.groups.map((group) => {
-						return (
-							<div className="group-container">
-								<Group key={group.name} userData={this.props.userData} group={group} path={path} onItemSelected={this.props.onItemSelected}/>
-							</div>
-						)
-					})}
+				<Collapse isOpened={expanded}>
+					<div className="client-container">
+						{this.props.group.clients && this.props.group.clients.map((client) => {
+							return (
+								<Client key={client.id} userData={this.props.userData} client={client} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
+							)
+						})}
+					</div>
+					<div className="group-container">
+						{this.props.group.groups && this.props.group.groups.map((group) => {
+							return (
+								<Group key={group.id} userData={this.props.userData} group={group} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
+							)
+						})}
+					</div>
 				</Collapse>
 			</div>
 		)
