@@ -24,13 +24,15 @@ export default class Group extends React.Component {
 					</div>
 				</div>
 				<Collapse isOpened={expanded}>
-					<div className="client-container">
-						{this.props.group.clients && this.props.group.clients.map((client) => {
-							return (
-								<Client key={client.id} userData={this.props.userData} client={client} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
-							)
-						})}
-					</div>
+					{this.props.group.clients &&
+						<div className="client-container">
+							{this.props.group.clients.map((client) => {
+								return (
+									<Client key={client.id} userData={this.props.userData} client={client} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
+								)
+							})}
+						</div>
+					}
 					<div className="group-container">
 						{this.props.group.groups && this.props.group.groups.map((group) => {
 							return (
