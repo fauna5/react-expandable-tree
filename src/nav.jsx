@@ -8,7 +8,7 @@ export default class Nav extends React.Component {
 		this.state = {
 			data: this.props.data,
 			userData: this.props.userData || [],
-			expandedPaths: [], //TODO 
+			expandedPaths: ['ROOT.13','ROOT.13.14','ROOT.13.14.15'], //TODO 
 			expandedItem: null
 		}
 	}

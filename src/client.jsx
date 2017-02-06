@@ -11,7 +11,7 @@ export default class Client extends React.Component {
 
 	render() {
 		const path = this.props.path + '.' + this.props.client.id
-		const indent = (this.props.path.split('.').length - 1) * 20
+		const indent = (this.props.path.split('.').length - 1) * 15 + 5
 		const expanded = this.props.expandedPaths.includes(path)
 
 		let users = []
@@ -31,8 +31,8 @@ export default class Client extends React.Component {
 					<div className="client-header">
 						<Icon style={(expanded ? 'caret-down' : 'caret-right')}/>
 						<Icon style='building'/>
-						<span className="clientName">{this.props.client.name}</span>
-						<span className="client-active">ACTIVE</span>
+						<div className="clientName">{this.props.client.name}</div>
+						<div className="client-active">ACTIVE</div>
 					</div>
 				</div>
 				<Collapse isOpened={expanded}>

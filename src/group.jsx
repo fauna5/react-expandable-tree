@@ -7,7 +7,7 @@ export default class Group extends React.Component {
 	render() {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
-		const padding = treeLevel * 20
+		const padding = treeLevel * 15 + 5
 		const bgCol = treeLevel * 23
 		const expanded = this.props.expandedPaths.includes(path)
 

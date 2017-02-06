@@ -243,6 +243,7 @@ function render() {
 		<Nav onGroupSelected={onGroupSelected} onClientSelected={onClientSelected} onUserSelected={onUserSelected}/>,
 		frame
 	)
+	component.onUserDataLoaded(userData)
 }
 
 render()
