@@ -54,16 +54,22 @@
         fill: #eeeeee;
         padding-left: 2px;
     }
+
+    .users-loading {
+        padding: 4px;
+        display: flex;
+        flex-direction: row;
+
+        span {
+            padding-left: 7px;
+        }
+    }
 }
 
 .user {
     background-color: #3d3d3d;
     padding: 7px;
     font-size: 11px;
-
-    .users-loading {
-        padding: 4px;
-    }
 
     .user-panel {
         display: flex;

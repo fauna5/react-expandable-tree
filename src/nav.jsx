@@ -1,7 +1,9 @@
 import Group from './group.jsx'
 import React from 'react'
 
+
 require('./style.scss')
+require('./spinner.css')
 
 export default class Nav extends React.Component {
 	constructor(props) {
@@ -10,7 +12,7 @@ export default class Nav extends React.Component {
 		this.state = {
 			data: this.props.data,
 			userData: this.props.userData || [],
-			expandedPaths: ['ROOT.13','ROOT.13.14','ROOT.13.14.15'], //TODO 
+			expandedPaths: ['ROOT.13', 'ROOT.13.14', 'ROOT.13.14.15'], //TODO 
 			expandedItem: null
 		}
 	}
@@ -54,14 +56,25 @@ export default class Nav extends React.Component {
 		return (
 			<div className="nav">
 				{
-				!this.state.data ?
-					<div className="nav">
-						<span className="spinner">loading...</span>
-					</div>
-					:
-					this.state.data.groups.map((group) => {
-						return <Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />
-					})
+					!this.state.data ?
+						<div className="sk-fading-circle large">
+							<div className="sk-circle1 sk-circle"></div>
+							<div className="sk-circle2 sk-circle"></div>
+							<div className="sk-circle3 sk-circle"></div>
+							<div className="sk-circle4 sk-circle"></div>
+							<div className="sk-circle5 sk-circle"></div>
+							<div className="sk-circle6 sk-circle"></div>
+							<div className="sk-circle7 sk-circle"></div>
+							<div className="sk-circle8 sk-circle"></div>
+							<div className="sk-circle9 sk-circle"></div>
+							<div className="sk-circle10 sk-circle"></div>
+							<div className="sk-circle11 sk-circle"></div>
+							<div className="sk-circle12 sk-circle"></div>
+						</div>
+						:
+						this.state.data.groups.map((group) => {
+							return <Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />
+						})
 				}
 			</div>
 		)
