@@ -10,7 +10,7 @@ class Nav extends React.Component {
 		}
 	}
 
-	onItemSelected = (path, type, itemName, selected) => {
+	handleItemSelected = (path, type, itemName, selected) => {
 		this.updateSelectedStatus(path, itemName, selected)
 		if(selected) {
 			if(type === 'client'){
@@ -43,7 +43,7 @@ class Nav extends React.Component {
 		}
 		const groups = []
 		this.state.data.groups.forEach(function(group) {
-			groups.push(<Group key={group.name} userData={this.state.userData} group={group} path="" onItemSelected={this.onItemSelected}/>)
+			groups.push(<Group key={group.name} userData={this.state.userData} group={group} path="" onItemSelected={this.handleItemSelected}/>)
 		}, this)
 		return (
 			<div className="nav">
