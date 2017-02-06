@@ -229,7 +229,7 @@ function onClientSelected(itemSelected) {
 	mainPanel.innerText = itemSelected + ' was clicked'
 	setTimeout(() => {
 		component.onUserDataLoaded(userData)
-	}, 2000)
+	}, 1000)
 }
 
 function onUserSelected(itemSelected) {
