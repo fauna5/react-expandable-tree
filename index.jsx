@@ -3,7 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 require('./index-style.css')
-require('./style.css')
 
 const frame = document.createElement('div')
 frame.className = 'container'

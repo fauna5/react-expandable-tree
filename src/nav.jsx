@@ -1,6 +1,8 @@
 import Group from './group.jsx'
 import React from 'react'
 
+require('./style.scss')
+
 export default class Nav extends React.Component {
 	constructor(props) {
 		super(props)
