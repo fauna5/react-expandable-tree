@@ -4,6 +4,9 @@ import Icon from './icon.jsx'
 import React from 'react'
 
 export default class Group extends React.Component {
+
+	onExpand = () => this.props.onExpand(this.props.path, 'group', this.props.group.id, false)
+
 	render() {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
@@ -11,15 +14,13 @@ export default class Group extends React.Component {
 		const bgCol = treeLevel * 23
 		const expanded = this.props.expandedPaths.includes(path)
 
-		const onExpand = () => this.props.onExpand(this.props.path, 'group', this.props.group.id, false)
-
 		return (
 			<div className={'group ' + (expanded ? 'expanded' : '')}>
 				<div className="group-panel" style={expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}}>
-					<div className="group-caret" onClick={onExpand} style={{'paddingLeft': padding + 'px'}}>
+					<div className="group-caret" onClick={this.onExpand} style={{'paddingLeft': padding + 'px'}}>
 						<Icon style={expanded === true ? 'caret-down' : 'caret-right'} />
 					</div>
-					<div className="group-header" onClick={onExpand}>
+					<div className="group-header" onClick={this.onExpand}>
 						{this.props.group.name}
 					</div>
 				</div>
