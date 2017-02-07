@@ -13,6 +13,7 @@ export default class Client extends React.Component {
 		const path = this.props.path + '.' + this.props.client.id
 		const indent = (this.props.path.split('.').length - 1) * 15 + 5
 		const expanded = this.props.expandedPaths.includes(path)
+		const selected = this.props.selectedPath === path
 
 		let users = []
 		if (this.props.userData.length == 0 && expanded) {
@@ -36,13 +37,13 @@ export default class Client extends React.Component {
 				</div>
 		} else {
 			users = this.props.userData.map((user) => {
-				return <User key={user.userName} path={path} data={user} onExpand={this.props.onExpand} />
+				return <User key={user.userName} path={path} data={user} selectedPath={this.props.selectedPath} onExpand={this.props.onExpand} />
 			})
 		}
 
 		return (
 			<div className={'client ' + (expanded ? 'expanded' : '')}>
-				<div className="client-panel" style={{ paddingLeft: indent + 'px' }} onClick={this.onExpand}>
+				<div className={"client-panel" + (selected && ' selected')}  style={{ paddingLeft: indent + 'px' }} onClick={this.onExpand}>
 					<div className="client-header">
 						<Icon style={(expanded ? 'caret-down' : 'caret-right')} />
 						<Icon style='building' />

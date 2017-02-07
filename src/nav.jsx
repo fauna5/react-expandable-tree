@@ -12,6 +12,7 @@ export default class Nav extends React.Component {
 		this.state = {
 			data: this.props.data,
 			userData: this.props.userData || [],
+			selectedPath: 'ROOT',
 			expandedPaths: ['ROOT.13', 'ROOT.13.14', 'ROOT.13.14.15'], //TODO 
 			expandedItem: null
 		}
@@ -21,15 +22,18 @@ export default class Nav extends React.Component {
 		const fullPath = path ? path + '.' + itemName : itemName
 
 		let newExpandedPaths
+		let newSelectedItem
 		if (this.state.expandedPaths.includes(fullPath)) { // remove if a close
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item !== fullPath
 			})
+			newSelectedItem = this.state.selectedItem
 		} else { // add and notify if it's an open
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item.split('.').length !== fullPath.split('.').length
 			})
-			newExpandedPaths = [...newExpandedPaths, fullPath];
+			newExpandedPaths = [...newExpandedPaths, fullPath]
+			newSelectedItem = fullPath
 
 			if (type === 'client') {
 				this.props.onClientSelected(itemName)
@@ -41,7 +45,10 @@ export default class Nav extends React.Component {
 			}
 		}
 		console.log(newExpandedPaths)
-		this.setState({ expandedPaths: newExpandedPaths })
+		this.setState({ 
+			expandedPaths: newExpandedPaths,
+			selectedPath: newSelectedItem
+		 })
 	}
 
 	onDataLoaded = (data) => {
@@ -73,7 +80,15 @@ export default class Nav extends React.Component {
 						</div>
 						:
 						this.state.data.groups.map((group) => {
-							return <Group key={group.id} userData={this.state.userData} group={group} path="ROOT" expandedPaths={this.state.expandedPaths} onExpand={this.handleExpand} />
+							return <Group 
+										key={group.id} 
+										userData={this.state.userData} 
+										group={group} 
+										path="ROOT" 
+										selectedPath={this.state.selectedPath} 
+										expandedPaths={this.state.expandedPaths} 
+										onExpand={this.handleExpand} 
+									/>
 						})
 				}
 			</div>

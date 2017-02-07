@@ -103,7 +103,8 @@
 }
 
 .selected>.group-panel,
-.selected>.client-header {
+.selected>.client-header,
+.selected.user-panel {
     background-color: #394f59;
     color: #eeeeee;
 }

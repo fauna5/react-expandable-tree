@@ -13,10 +13,12 @@ export default class Group extends React.Component {
 		const padding = treeLevel * 15 + 5
 		const bgCol = treeLevel * 23
 		const expanded = this.props.expandedPaths.includes(path)
+		const selected = this.props.selectedPath === path
+		const backgroundStyle = selected ? {'backgroundColor': '#394f59'} : expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}
 
 		return (
 			<div className={'group ' + (expanded ? 'expanded' : '')}>
-				<div className="group-panel" style={expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}}>
+				<div className="group-panel" style={backgroundStyle}>
 					<div className="group-caret" onClick={this.onExpand} style={{'paddingLeft': padding + 'px'}}>
 						<Icon style={expanded === true ? 'caret-down' : 'caret-right'} />
 					</div>
@@ -29,7 +31,15 @@ export default class Group extends React.Component {
 						<div className="client-container">
 							{this.props.group.clients.map((client) => {
 								return (
-									<Client key={client.id} userData={this.props.userData} client={client} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
+									<Client 
+										key={client.id} 
+										userData={this.props.userData} 
+										client={client} 
+										path={path} 
+										selectedPath={this.props.selectedPath} 
+										expandedPaths={this.props.expandedPaths} 
+										onExpand={this.props.onExpand}
+									/>
 								)
 							})}
 						</div>
@@ -37,7 +47,15 @@ export default class Group extends React.Component {
 					<div className="group-container">
 						{this.props.group.groups && this.props.group.groups.map((group) => {
 							return (
-								<Group key={group.id} userData={this.props.userData} group={group} path={path} expandedPaths={this.props.expandedPaths} onExpand={this.props.onExpand} />
+								<Group 
+									key={group.id} 
+									userData={this.props.userData} 
+									group={group} 
+									path={path} 
+									selectedPath={this.props.selectedPath} 
+									expandedPaths={this.props.expandedPaths} 
+									onExpand={this.props.onExpand}
+								/>
 							)
 						})}
 					</div>
