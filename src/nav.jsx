@@ -18,11 +18,10 @@ export default class Nav extends React.Component {
 		}
 	}
 
-	handleExpand = (path, type, itemName) => {
+	handleExpand(path, type, itemName) {
 		const fullPath = path ? path + '.' + itemName : itemName
 
 		let newExpandedPaths
-		let newSelectedItem
 		if (this.state.expandedPaths.includes(fullPath)) { // remove if a close
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item !== fullPath
@@ -36,29 +35,28 @@ export default class Nav extends React.Component {
 
 		if (type === 'client') {
 			this.props.onClientSelected(itemName)
-			this.setState({ userData: [] })
+			this.setState({userData: []})
 		} else if (type === 'user') {
 			this.props.onUserSelected(itemName)
 		} else if (type === 'group') {
 			this.props.onGroupSelected(itemName)
 		}
 
-		console.log(newExpandedPaths)
-		this.setState({ 
+		this.setState({
 			expandedPaths: newExpandedPaths,
 			selectedPath: fullPath
-		 })
+		})
 	}
 
-	onDataLoaded = (data) => {
-		this.setState({ data: data })
+	onDataLoaded(data) {
+		this.setState({data})
 	}
 
-	onUserDataLoaded = (data) => {
-		this.setState({ userData: data })
+	onUserDataLoaded(data) {
+		this.setState({userData: data})
 	}
 
-	render(data) {
+	render() {
 		return (
 			<div className="nav">
 				{
@@ -79,14 +77,14 @@ export default class Nav extends React.Component {
 						</div>
 						:
 						this.state.data.groups.map((group) => {
-							return <Group 
-										key={group.id} 
-										userData={this.state.userData} 
-										group={group} 
-										path="ROOT" 
-										selectedPath={this.state.selectedPath} 
-										expandedPaths={this.state.expandedPaths} 
-										onExpand={this.handleExpand} 
+							return <Group
+										key={group.id}
+										userData={this.state.userData}
+										group={group}
+										path="ROOT"
+										selectedPath={this.state.selectedPath}
+										expandedPaths={this.state.expandedPaths}
+										onExpand={(...args) => this.handleExpand(...args)}
 									/>
 						})
 				}
