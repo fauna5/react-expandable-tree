@@ -27,27 +27,26 @@ export default class Nav extends React.Component {
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item !== fullPath
 			})
-			newSelectedItem = this.state.selectedItem
 		} else { // add and notify if it's an open
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item.split('.').length !== fullPath.split('.').length
 			})
 			newExpandedPaths = [...newExpandedPaths, fullPath]
-			newSelectedItem = fullPath
-
-			if (type === 'client') {
-				this.props.onClientSelected(itemName)
-				this.setState({ userData: [] })
-			} else if (type === 'user') {
-				this.props.onUserSelected(itemName)
-			} else if (type === 'group') {
-				this.props.onGroupSelected(itemName)
-			}
 		}
+
+		if (type === 'client') {
+			this.props.onClientSelected(itemName)
+			this.setState({ userData: [] })
+		} else if (type === 'user') {
+			this.props.onUserSelected(itemName)
+		} else if (type === 'group') {
+			this.props.onGroupSelected(itemName)
+		}
+		
 		console.log(newExpandedPaths)
 		this.setState({ 
 			expandedPaths: newExpandedPaths,
-			selectedPath: newSelectedItem
+			selectedPath: fullPath
 		 })
 	}
 
