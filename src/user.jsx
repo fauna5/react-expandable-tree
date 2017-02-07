@@ -1,3 +1,4 @@
+import cn from 'classnames'
 import Icon from './icon.jsx'
 import React from 'react'
 
@@ -9,8 +10,9 @@ export default class User extends React.Component {
 		const selected = this.props.selectedPath === path
 
 		return (
-			<div className={'user' + (selected ? ' selected' : '')}
+			<div className={cn('user', {selected})}
 				onClick={() => this.props.onExpand(this.props.path, 'user', this.props.data.userName)}>
+
 				<div className={'user-panel' + (selected ? ' selected' : '')} style={{paddingLeft: indent}}>
 					<Icon style="user" />
 					<div className="user-header">

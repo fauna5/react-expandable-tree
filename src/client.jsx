@@ -1,4 +1,5 @@
 import Collapse from 'react-collapse'
+import cn from 'classnames'
 import Icon from './icon.jsx'
 import React from 'react'
 import User from './user.jsx'
@@ -12,8 +13,8 @@ export default class Client extends React.Component {
 		const selected = this.props.selectedPath === path
 
 		return (
-			<div className={'client ' + (expanded ? 'expanded' : '')}>
-				<div className={"client-panel" + (selected && ' selected')}
+			<div className="client">
+				<div className={cn('client-panel', {selected})}
 					style={{paddingLeft: indent + 'px'}}
 					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id)}
 					>
@@ -42,7 +43,7 @@ export default class Client extends React.Component {
 									<div className="sk-circle11 sk-circle"></div>
 									<div className="sk-circle12 sk-circle"></div>
 								</div>
-								<span className="spinner">loading...</span>
+								<span>loading...</span>
 							</div>
 							:
 							this.props.userData.map((user) => {

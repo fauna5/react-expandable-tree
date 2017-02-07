@@ -1,4 +1,5 @@
 import Client from './client.jsx'
+import cn from 'classnames'
 import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
 import React from 'react'
@@ -15,10 +16,10 @@ export default class Group extends React.Component {
 		const backgroundStyle = selected ? {'backgroundColor': '#394f59'} : expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}
 
 		return (
-			<div className={'group ' + (expanded ? 'expanded' : '')}>
+			<div className={cn('group', expanded)}>
 				<div className="group-panel" style={backgroundStyle} onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
 					<div className="group-caret" style={{'paddingLeft': indent + 'px'}}>
-						<Icon style={expanded === true ? 'caret-down' : 'caret-right'} />
+						<Icon style={expanded === true ? 'caret-down' : 'caret-right'}/>
 					</div>
 					<div className="group-header">{this.props.group.name}</div>
 				</div>

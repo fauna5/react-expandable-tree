@@ -12,7 +12,7 @@ export default class Nav extends React.Component {
 		this.state = {
 			data: this.props.data,
 			userData: this.props.userData || [],
-			selectedPath: 'ROOT',
+			selectedPath: 'ROOT.13.14.15',
 			expandedPaths: ['ROOT.13', 'ROOT.13.14', 'ROOT.13.14.15'], //TODO 
 			expandedItem: null
 		}
@@ -27,7 +27,7 @@ export default class Nav extends React.Component {
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item !== fullPath
 			})
-		} else { // add and notify if it's an open
+		} else { // add if it's an open
 			newExpandedPaths = this.state.expandedPaths.filter((item) => {
 				return item.split('.').length !== fullPath.split('.').length
 			})
