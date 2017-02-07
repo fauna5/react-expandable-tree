@@ -11,7 +11,7 @@ export default class User extends React.Component {
 		return (
 			<div className={'user' + (selected ? ' selected' : '')}
 				onClick={() => this.props.onExpand(this.props.path, 'user', this.props.data.userName)}>
-				<div className={'user-panel' + (selected ? ' selected' : '')} style={{ paddingLeft: indent }}>
+				<div className={'user-panel' + (selected ? ' selected' : '')} style={{paddingLeft: indent}}>
 					<Icon style="user" />
 					<div className="user-header">
 						<div className="fullname">

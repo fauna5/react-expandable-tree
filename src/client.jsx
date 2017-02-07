@@ -13,8 +13,8 @@ export default class Client extends React.Component {
 
 		return (
 			<div className={'client ' + (expanded ? 'expanded' : '')}>
-				<div className={"client-panel" + (selected && ' selected')}  
-					style={{ paddingLeft: indent + 'px' }} 
+				<div className={"client-panel" + (selected && ' selected')}
+					style={{paddingLeft: indent + 'px'}}
 					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id)}
 					>
 					<div className="client-header">
@@ -26,8 +26,8 @@ export default class Client extends React.Component {
 				</div>
 				<Collapse isOpened={expanded}>
 					<div className="user-container">
-						{(this.props.userData.length == 0 && expanded) ?
-							<div key={'loading'} className="users-loading" style={{ paddingLeft: (indent + 50) + 'px' }}>
+						{this.props.userData.length == 0 && expanded ?
+							<div className="users-loading" style={{paddingLeft: (indent + 50) + 'px' }}>
 								<div className="sk-fading-circle small">
 									<div className="sk-circle1 sk-circle"></div>
 									<div className="sk-circle2 sk-circle"></div>
@@ -46,7 +46,12 @@ export default class Client extends React.Component {
 							</div>
 							:
 							this.props.userData.map((user) => {
-								return <User key={user.userName} path={path} data={user} selectedPath={this.props.selectedPath} onExpand={this.props.onExpand} />
+								return <User
+											key={user.userName}
+											path={path}
+											data={user}
+											selectedPath={this.props.selectedPath}
+											onExpand={this.props.onExpand} />
 							})
 						}
 					</div>
