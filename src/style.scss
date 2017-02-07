@@ -34,7 +34,6 @@
 
 .client {
     .client-header {
-        background-color: #3d3d3d;
         padding: 7px;
         padding-top: 8px;
 
@@ -102,9 +101,9 @@
     fill: #eeeeee;
 }
 
-.selected>.group-panel,
-.selected>.client-header,
-.selected.user-panel {
+.selected.group-panel,
+.selected.client-panel,
+.selected.user {
     background-color: #394f59;
     color: #eeeeee;
 }
