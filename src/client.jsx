@@ -15,7 +15,7 @@ export default class Client extends React.Component {
 			<div className={'client ' + (expanded ? 'expanded' : '')}>
 				<div className={"client-panel" + (selected && ' selected')}  
 					style={{ paddingLeft: indent + 'px' }} 
-					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id, false)}
+					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id)}
 					>
 					<div className="client-header">
 						<Icon style={(expanded ? 'caret-down' : 'caret-right')} />

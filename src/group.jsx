@@ -5,8 +5,6 @@ import React from 'react'
 
 export default class Group extends React.Component {
 
-	onExpand = () => this.props.onExpand(this.props.path, 'group', this.props.group.id, false)
-
 	render() {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
@@ -18,13 +16,11 @@ export default class Group extends React.Component {
 
 		return (
 			<div className={'group ' + (expanded ? 'expanded' : '')}>
-				<div className="group-panel" style={backgroundStyle}>
-					<div className="group-caret" onClick={this.onExpand} style={{'paddingLeft': padding + 'px'}}>
+				<div className="group-panel" style={backgroundStyle} onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
+					<div className="group-caret"  style={{'paddingLeft': padding + 'px'}}>
 						<Icon style={expanded === true ? 'caret-down' : 'caret-right'} />
 					</div>
-					<div className="group-header" onClick={this.onExpand}>
-						{this.props.group.name}
-					</div>
+					<div className="group-header">{this.props.group.name}</div>
 				</div>
 				<Collapse isOpened={expanded}>
 					{this.props.group.clients &&

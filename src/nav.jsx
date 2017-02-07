@@ -18,7 +18,7 @@ export default class Nav extends React.Component {
 		}
 	}
 
-	handleExpand = (path, type, itemName, expanded) => {
+	handleExpand = (path, type, itemName) => {
 		const fullPath = path ? path + '.' + itemName : itemName
 
 		let newExpandedPaths
@@ -42,7 +42,7 @@ export default class Nav extends React.Component {
 		} else if (type === 'group') {
 			this.props.onGroupSelected(itemName)
 		}
-		
+
 		console.log(newExpandedPaths)
 		this.setState({ 
 			expandedPaths: newExpandedPaths,
