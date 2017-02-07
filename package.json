@@ -33,6 +33,6 @@
     "react-collapse": "^2.3.3",
     "react-dom": "^15.4.1",
     "react-height": "^2.1.1",
-    "react-motion": "^0.4.7",
+    "react-motion": "^0.4.7"
   }
 }
