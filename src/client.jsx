@@ -1,8 +1,8 @@
 import Collapse from 'react-collapse'
-import cn from 'classnames'
 import Icon from './icon.jsx'
 import React from 'react'
 import User from './user.jsx'
+import cn from 'classnames'
 
 export default class Client extends React.Component {
 

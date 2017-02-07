@@ -1,8 +1,8 @@
 import Client from './client.jsx'
-import cn from 'classnames'
 import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
 import React from 'react'
+import cn from 'classnames'
 
 export default class Group extends React.Component {
 

@@ -1,6 +1,6 @@
-import cn from 'classnames'
 import Icon from './icon.jsx'
 import React from 'react'
+import cn from 'classnames'
 
 export default class User extends React.Component {
 
