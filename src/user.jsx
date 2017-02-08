@@ -1,5 +1,5 @@
+import React, {PropTypes} from 'react'
 import Icon from './icon.jsx'
-import React from 'react'
 import cn from 'classnames'
 
 export default class User extends React.Component {
@@ -28,4 +28,11 @@ export default class User extends React.Component {
 			</div>
 		)
 	}
+}
+
+User.propTypes = {
+	data: PropTypes.object,
+	onExpand: PropTypes.func,
+	path: PropTypes.string,
+	selectedPath: PropTypes.string,
 }

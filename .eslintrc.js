@@ -37,11 +37,12 @@ module.exports = {
         }
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended", "plugin:react/recommended"
     ],
     "plugins": [
         "react",
-        "jest"
+        "jest",
+        "react"
     ],
     "rules": {
         "accessor-pairs": "error",

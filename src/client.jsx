@@ -1,6 +1,6 @@
+import React, {PropTypes} from 'react'
 import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
-import React from 'react'
 import User from './user.jsx'
 import cn from 'classnames'
 
@@ -27,8 +27,8 @@ export default class Client extends React.Component {
 				</div>
 				<Collapse isOpened={expanded}>
 					<div className="user-container">
-						{this.props.userData.length == 0 && expanded ?
-							<div className="users-loading" style={{paddingLeft: (indent + 50) + 'px' }}>
+						{this.props.userData.length == 0 && expanded
+							? <div className="users-loading" style={{paddingLeft: (indent + 50) + 'px' }}>
 								<div className="sk-fading-circle small">
 									<div className="sk-circle1 sk-circle"></div>
 									<div className="sk-circle2 sk-circle"></div>
@@ -45,8 +45,7 @@ export default class Client extends React.Component {
 								</div>
 								<span>loading...</span>
 							</div>
-							:
-							this.props.userData.map((user) => {
+							: this.props.userData.map((user) => {
 								return <User
 											key={user.userName}
 											path={path}
@@ -60,4 +59,13 @@ export default class Client extends React.Component {
 			</div>
 		)
 	}
+}
+
+Client.propTypes = {
+	client: PropTypes.object,
+	expandedPaths: PropTypes.array,
+	onExpand: PropTypes.func,
+	path: PropTypes.string,
+	selectedPath: PropTypes.string,
+	userData: PropTypes.array,
 }

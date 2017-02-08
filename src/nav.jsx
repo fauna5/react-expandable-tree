@@ -1,5 +1,5 @@
+import React, {PropTypes} from 'react'
 import Group from './group.jsx'
-import React from 'react'
 
 
 require('./style.scss')
@@ -10,8 +10,8 @@ export default class Nav extends React.Component {
 		super(props)
 
 		this.state = {
-			data: this.props.data,
-			userData: this.props.userData || [],
+			data: this.props.data || null,
+			userData: this.props.userData || {},
 			selectedPath: "",
 			expandedPaths: [],
 			expandedItem: null
@@ -60,23 +60,22 @@ export default class Nav extends React.Component {
 		return (
 			<div className="nav">
 				{
-					!this.state.data ?
-						<div className="sk-fading-circle large">
-							<div className="sk-circle1 sk-circle"></div>
-							<div className="sk-circle2 sk-circle"></div>
-							<div className="sk-circle3 sk-circle"></div>
-							<div className="sk-circle4 sk-circle"></div>
-							<div className="sk-circle5 sk-circle"></div>
-							<div className="sk-circle6 sk-circle"></div>
-							<div className="sk-circle7 sk-circle"></div>
-							<div className="sk-circle8 sk-circle"></div>
-							<div className="sk-circle9 sk-circle"></div>
-							<div className="sk-circle10 sk-circle"></div>
-							<div className="sk-circle11 sk-circle"></div>
-							<div className="sk-circle12 sk-circle"></div>
-						</div>
-						:
-						this.state.data.groups.map((group) => {
+					!this.state.data
+						? <div className="sk-fading-circle large">
+								<div className="sk-circle1 sk-circle"></div>
+								<div className="sk-circle2 sk-circle"></div>
+								<div className="sk-circle3 sk-circle"></div>
+								<div className="sk-circle4 sk-circle"></div>
+								<div className="sk-circle5 sk-circle"></div>
+								<div className="sk-circle6 sk-circle"></div>
+								<div className="sk-circle7 sk-circle"></div>
+								<div className="sk-circle8 sk-circle"></div>
+								<div className="sk-circle9 sk-circle"></div>
+								<div className="sk-circle10 sk-circle"></div>
+								<div className="sk-circle11 sk-circle"></div>
+								<div className="sk-circle12 sk-circle"></div>
+							</div>
+						: this.state.data.groups.map((group) => {
 							return <Group
 										key={group.id}
 										userData={this.state.userData}
@@ -91,4 +90,12 @@ export default class Nav extends React.Component {
 			</div>
 		)
 	}
+}
+
+Nav.propTypes = {
+	onClientSelected: PropTypes.func,
+	onUserSelected: PropTypes.func,
+	onGroupSelected: PropTypes.func,
+	userData: PropTypes.array,
+	data: PropTypes.object,
 }

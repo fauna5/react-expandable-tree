@@ -1,7 +1,7 @@
+import React, {PropTypes} from 'react'
 import Client from './client.jsx'
 import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
-import React from 'react'
 import cn from 'classnames'
 
 export default class Group extends React.Component {
@@ -60,4 +60,13 @@ export default class Group extends React.Component {
 			</div>
 		)
 	}
+}
+
+Group.propTypes = {
+	expandedPaths: PropTypes.array,
+	group: PropTypes.object,
+	onExpand: PropTypes.func,
+	path: PropTypes.string,
+	selectedPath: PropTypes.string,
+	userData: PropTypes.array,
 }
