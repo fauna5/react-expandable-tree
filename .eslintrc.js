@@ -4,6 +4,9 @@ module.exports = {
         "es6": true,
         "jest": true
     },
+    "globals": {
+        "global": true,
+    },
     "parserOptions": {
         "ecmaVersion": 8,
         "sourceType": "module",
