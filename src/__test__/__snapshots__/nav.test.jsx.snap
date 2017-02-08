@@ -1,4 +1,4 @@
-exports[`test renders 1`] = `
+exports[`test shows loading on initial load 1`] = `
 <div
   className="nav">
   <div
