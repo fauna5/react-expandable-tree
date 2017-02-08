@@ -8,7 +8,7 @@ it('shows loading on initial load', () => {
 	expect(ReactTestUtils.findRenderedDOMComponentWithClass(component, 'sk-fading-circle')).toBeDefined()
 })
 
-it('renders a tree of items', () => {
+it('shows the tree when initial data is pushed in', () => {
 	const component = ReactTestUtils.renderIntoDocument(<Nav />)
 	component.onDataLoaded(initialData)
 
