@@ -1,26 +1,8 @@
-
 import ReactTestUtils, {Simulate} from 'react-addons-test-utils'
 import {initialData, userData} from './test-data.js'
-import Jsdom from 'jsdom'
 import Nav from '../nav.jsx'
 import React from 'react'
 import renderer from 'react-test-renderer'
-
-var doc = Jsdom.jsdom('<!doctype html><html><body></body></html>')
-var win = doc.defaultView
-
-global.document = doc
-global.window = win
-
-propagateToGlobal(win)
-
-function propagateToGlobal(window) {
-	Object.keys(window).forEach((key) => {
-		if (!(key in global)) {
-			global[key] = window[key]
-		}
-	})
-}
 
 it('shows loading on initial load', () => {
 	const component = renderer.create(
