@@ -2,14 +2,10 @@ import ReactTestUtils, {Simulate} from 'react-addons-test-utils'
 import {initialData, userData} from './test-data.js'
 import Nav from '../nav.jsx'
 import React from 'react'
-import renderer from 'react-test-renderer'
 
 it('shows loading on initial load', () => {
-	const component = renderer.create(
-		<Nav />
-	)
-	const tree = component.toJSON()
-	expect(tree).toMatchSnapshot()
+	const component = ReactTestUtils.renderIntoDocument(<Nav />)
+	expect(ReactTestUtils.findRenderedDOMComponentWithClass(component, 'sk-fading-circle')).toBeDefined()
 })
 
 it('renders a tree of items', () => {
