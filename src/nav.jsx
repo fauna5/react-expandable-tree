@@ -1,7 +1,6 @@
 import React, {PropTypes} from 'react'
 import Group from './group.jsx'
 
-
 require('./style.scss')
 require('./spinner.css')
 

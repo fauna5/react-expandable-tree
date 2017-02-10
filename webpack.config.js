@@ -1,19 +1,32 @@
+/* eslint no-console: off */
+/* global module, __dirname */
 
-module.exports = {
-	entry: "./index.jsx",
-	output: {
-		path: __dirname,
-		filename: "bundle.js"
-	},
-	module: {
-		loaders: [
-			{
+module.exports = function (env) {
+	console.log('\nMODE is', env)
+	let entry = "./src/nav.jsx"
+
+	if (env === 'dev') {
+		entry = "./index.jsx"
+	}
+	console.log('entry is', entry, '\n')
+
+	return {
+		entry,
+		output: {
+			path: __dirname,
+			filename: "lib/bundle.js",
+			library: "WebpackExpandableTree",
+			libraryTarget: 'umd',
+			umdNamedDefine: true
+		},
+		module: {
+			loaders: [{
 				test: /\.css$/,
-				loader: "style!css"
+				loaders: ['style-loader', 'css-loader']
 			},
 			{
 				test: /\.scss$/,
-				loaders: ['style', 'css', 'sass']
+				loaders: ['style-loader', 'css-loader', 'sass-loader']
 			},
 			{
 				test: /\.jsx$/,
@@ -26,11 +39,7 @@ module.exports = {
 				loader: 'babel-loader',
 				exclude: /node_modules/,
 				query: {presets: ['es2015']}
-			// },
-			// {
-			// 	test: /\.svg/,
-			// 	loader: 'svg-url-loader'
-			}
-		]
+			}]
+		}
 	}
 }

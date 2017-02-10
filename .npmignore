@@ -1,0 +1,8 @@
+src
+node_modules
+\.*
+index*
+*config.json
+*config.js
+yarn.lock
+*.tgz
