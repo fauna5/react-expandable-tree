@@ -6,13 +6,14 @@ body {
 	width: 333px;
 	height: 100vh;
 	background-color: #4a4a4a;
-	float:left;
+	display: inline-block;
 }
 
 .main {
-	float:left;
 	height: 400px;
 	text-align: center;
 	padding-left: 50px;
 	padding-top: 50px;
+	display: inline-block;
+	vertical-align: top;
 }
