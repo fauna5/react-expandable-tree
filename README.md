@@ -39,7 +39,7 @@ setTimeout(() => { // Fake XHR
 
 ```
 
-## Options
+## Props
 
 #### `onGroupSelected(itemId)`: PropTypes.func
 
@@ -103,3 +103,23 @@ Call this method to push in all `user` data
 ```
 
 #### Users
+
+```jsx
+[
+    {
+        firstName: 'User',
+        lastName: 'One',
+        userName: 'user1@caplin.com'
+    },
+    {
+        firstName: 'User',
+        lastName: 'Two',
+        userName: 'user2@caplin.com'
+    },
+    {
+        firstName: 'User',
+        lastName: 'Three',
+        userName: 'user3@caplin.com'
+    }
+]
+```
