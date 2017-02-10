@@ -11,7 +11,7 @@ document.body.appendChild(frame)
 
 const mainPanel = document.createElement('div')
 mainPanel.className = 'main'
-mainPanel.innerText = 'director'
+mainPanel.innerText = 'react-expandable-tree'
 document.body.appendChild(mainPanel)
 
 function onGroupSelected(itemSelected) {
