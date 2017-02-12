@@ -23,7 +23,7 @@ export default class Group extends React.Component {
 					</div>
 					<div className="group-header">{this.props.group.name}</div>
 				</div>
-				<Collapse isOpened={expanded}>
+				<Collapse isOpened={expanded} hasNestedCollapse={true}>
 					{this.props.group.clients &&
 						<div className="client-container">
 							{this.props.group.clients.map((client) => {

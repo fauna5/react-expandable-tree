@@ -25,7 +25,7 @@ export default class Client extends React.Component {
 						<div className="client-active">ACTIVE</div>
 					</div>
 				</div>
-				<Collapse isOpened={expanded}>
+				<Collapse isOpened={expanded} hasNestedCollapse={true}>
 					<div className="user-container">
 						{this.props.userData.length == 0 && expanded
 							? <div className="users-loading" style={{paddingLeft: (indent + 50) + 'px' }}>
