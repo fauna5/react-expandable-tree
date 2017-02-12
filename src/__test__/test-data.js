@@ -2,17 +2,17 @@ const userData = [
 	{
 		firstName: 'User',
 		lastName: 'One',
-		userName: 'user1@caplin.com'
+		userName: 'user1@client.com'
 	},
 	{
 		firstName: 'User',
 		lastName: 'Two',
-		userName: 'user2@caplin.com'
+		userName: 'user2@client.com'
 	},
 	{
 		firstName: 'User',
 		lastName: 'Three',
-		userName: 'user3@caplin.com'
+		userName: 'user3@client.com'
 	}
 ]
 
