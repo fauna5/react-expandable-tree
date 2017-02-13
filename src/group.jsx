@@ -10,14 +10,12 @@ export default class Group extends React.Component {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
 		const indent = treeLevel * 15 + 5
-		const bgCol = treeLevel * 23
 		const expanded = this.props.expandedPaths.includes(path)
 		const selected = this.props.selectedPath === path
-		const backgroundStyle = selected ? {'backgroundColor': '#394f59'} : expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}
 
 		return (
-			<div className={cn('group', {expanded})}>
-				<div className="group-panel" style={backgroundStyle} onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
+			<div className={cn('group', {selected}, {expanded}, 'level-' + treeLevel)}>
+				<div className="group-panel" onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
 					<div className="group-caret" style={{'paddingLeft': indent + 'px'}}>
 						<Icon style={expanded === true ? 'caret-down' : 'caret-right'}/>
 					</div>

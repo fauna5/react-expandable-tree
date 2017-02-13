@@ -3,6 +3,8 @@ import {initialData, userData} from './test-data.js'
 import Nav from '../nav.jsx'
 import React from 'react'
 
+function emptyFunc() {}
+
 it('shows loading on initial load', () => {
 	const component = ReactTestUtils.renderIntoDocument(<Nav />)
 	expect(ReactTestUtils.findRenderedDOMComponentWithClass(component, 'sk-fading-circle')).toBeDefined()
@@ -20,7 +22,7 @@ it('shows the tree when initial data is pushed in', () => {
 })
 
 it('expands when group is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -46,7 +48,7 @@ it('calls back on prop injected function when group is clicked', () => {
 })
 
 it('marks the group as being selected when group is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -63,7 +65,7 @@ it('marks the group as being selected when group is clicked', () => {
 })
 
 it('collapses the group on the second click', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -80,7 +82,7 @@ it('collapses the group on the second click', () => {
 })
 
 it('collapses the first group on the same level when the second group is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -97,7 +99,7 @@ it('collapses the first group on the same level when the second group is clicked
 })
 
 it('remembers expanded sub-groups that were expanded when top level group is collapsed and expanded', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -117,7 +119,7 @@ it('remembers expanded sub-groups that were expanded when top level group is col
 })
 
 it('expands to show clients when group is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -135,7 +137,7 @@ it('expands to show clients when group is clicked', () => {
 })
 
 it('collapses the client on the second click', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} onClientSelected={() => {}}/>)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -159,7 +161,7 @@ it('collapses the client on the second click', () => {
 })
 
 it('collapses the first client on the same level when the second client is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} onClientSelected={() => {}}/>)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -183,7 +185,7 @@ it('collapses the first client on the same level when the second client is click
 })
 
 it('expands to show user loading when client is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => {}} onClientSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -200,7 +202,7 @@ it('expands to show user loading when client is clicked', () => {
 })
 
 it('marks the client as selected when client is clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} onClientSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -220,7 +222,7 @@ it('marks the client as selected when client is clicked', () => {
 it('expands to show users when client is clicked and user data is loaded', () => {
 	const onClientSelected = jest.fn()
 
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} onClientSelected={onClientSelected} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={onClientSelected} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -245,7 +247,7 @@ it('expands to show users when client is clicked and user data is loaded', () =>
 it('calls back on prop injected function when user is clicked', () => {
 	const onUserSelected = jest.fn()
 
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} onClientSelected={() => { }} onUserSelected={onUserSelected} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} onUserSelected={onUserSelected} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -265,7 +267,7 @@ it('calls back on prop injected function when user is clicked', () => {
 })
 
 it('marks the user as selected when clicked', () => {
-	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} onClientSelected={() => { }} onUserSelected={() => {}} />)
+	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc} onClientSelected={emptyFunc} onUserSelected={emptyFunc} />)
 	component.onDataLoaded(initialData)
 
 	const topLevelGroups = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'group')
@@ -299,7 +301,7 @@ function getUserName(userElement) {
 }
 
 function groupIsExpanded(groupElement) {
-	return groupElement.className === 'group expanded'
+	return groupElement.className.includes('expanded')
 }
 
 function clientIsExpanded(clientElement) {
@@ -307,11 +309,11 @@ function clientIsExpanded(clientElement) {
 }
 
 function isGroupSelected(groupElement) {
-	return groupElement.querySelector('.group-panel').style.backgroundColor === 'rgb(57, 79, 89)'
+	return groupElement.className.includes('selected')
 }
 
 function isClientSelected(clientElement) {
-	return clientElement.querySelector('.client-panel').className.includes('selected')
+	return clientElement.className.includes('selected')
 }
 
 function isUserSelected(userElement) {

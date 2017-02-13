@@ -1,111 +1,136 @@
+$primary-color: #EEE;
+$background-color-light: #4A4A4A;
+$background-color-dark: #3D3D3D;
+$background-color-selected: #394F59;
 
+$background-color-level-0: #000;
+$background-color-level-1: #232323;
 
 .nav {
-    color: #eeeeee;
-    font-size: 14px;
-    cursor: pointer;
-    height: 100%;
-    background-color: #4a4a4a;
-    overflow: auto;
+  background-color: $background-color-light;
+  color: $primary-color;
+  cursor: pointer;
+  font-size: 14px;
+  height: 100%;
+  overflow: auto;
 }
 
 .group {
-    background-color: #3d3d3d;
-    
-    .group-panel {
-        border-bottom: 2px solid #4a4a4a;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-    }
+  background-color: $background-color-dark;
 
-    .group-caret {
-        padding: 4px;
-        height: 21px;
-    }
 
-    .group-header {
-        padding: 7px;
-        flex-grow: 1;
+  &.expanded.level-0 {
+    >.group-panel {
+      background-color: $background-color-level-0;
     }
+  }
 
-    .client-container {
-        border-bottom: 2px solid #4a4a4a;
+  &.expanded.level-1 {
+    >.group-panel {
+      background-color: $background-color-level-1;
     }
+  }
+
+  &.selected.expanded, &.selected {
+    >.group-panel {
+      background-color: $background-color-selected;
+    }
+  }
+
+  .group-panel {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid $background-color-light;
+    flex-direction: row;
+  }
+
+  .group-header {
+
+
+    flex-grow: 1;
+    padding: 7px;
+  }
+
+  .group-caret {
+    height: 21px;
+    padding: 4px;
+  }
+
+
+  .client-container {
+    border-bottom: 2px solid $background-color-light;
+  }
 }
 
 .client {
-    .client-header {
-        padding: 7px;
-        padding-top: 8px;
+  .client-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 7px;
+    padding-top: 8px;
+  }
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+  .client-name {
+    flex-grow: 1;
+    padding-left: 7px;
+  }
+
+  svg.building {
+    fill: $primary-color;
+    height: 18px;
+    padding-left: 2px;
+    width: 18px;
+  }
+
+  .users-loading {
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+
+    span {
+      padding-left: 7px;
     }
-
-    .client-name {
-        flex-grow: 1;
-        padding-left: 7px;
-    }
-
-    svg.building {
-        width: 18px;
-        height: 18px;
-        fill: #eeeeee;
-        padding-left: 2px;
-    }
-
-    .users-loading {
-        padding: 4px;
-        display: flex;
-        flex-direction: row;
-
-        span {
-            padding-left: 7px;
-        }
-    }
+  }
 }
 
 .user {
-    background-color: #3d3d3d;
-    padding: 7px;
-    font-size: 11px;
+  background-color: $background-color-dark;
+  font-size: 11px;
+  padding: 7px;
 
-    .user-panel {
-        display: flex;
-        flex-direction: row;
-    }
+  .user-panel {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .user-panel>svg {
-        width: 20px;
-        height: 20px;
-        fill: #eeeeee;
-        padding-top: 2px;
-    }
-
-    .user-header {
-        padding-left: 8px;
-    }
-
-    .first-name {
-        padding-left: 5px;
-    }   
-
-    .user-name {
-        font-weight: italic;
-    }
-}
-
-.group .caret,
-.client-header .caret {
+  .user-panel>svg {
     width: 20px;
-    fill: #eeeeee;
+    height: 20px;
+    fill: $primary-color;
+    padding-top: 2px;
+  }
+
+  .user-header {
+    padding-left: 8px;
+  }
+
+  .first-name {
+    padding-left: 5px;
+  }   
+
+  .user-name {
+    font-weight: italic;
+  }
 }
 
-.selected.group-panel,
-.selected.client-panel,
+.caret {
+  width: 20px;
+  fill: $primary-color;
+}
+
+.selected>.client-panel,
 .selected.user {
-    background-color: #394f59;
-    color: #eeeeee;
+  background-color: $background-color-selected;
+  color: $primary-color;
 }

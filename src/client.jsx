@@ -13,14 +13,14 @@ export default class Client extends React.Component {
 		const selected = this.props.selectedPath === path
 
 		return (
-			<div className="client">
-				<div className={cn('client-panel', {selected})}
+			<div className={cn('client', {selected})}>
+				<div className="client-panel"
 					style={{paddingLeft: indent + 'px'}}
 					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id)}
 					>
 					<div className="client-header">
 						<Icon style={(expanded ? 'caret-down' : 'caret-right')} />
-						<Icon style='building' />
+						<Icon style="building" />
 						<div className="client-name">{this.props.client.name}</div>
 						<div className="client-active">ACTIVE</div>
 					</div>
