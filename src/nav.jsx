@@ -10,7 +10,7 @@ export default class Nav extends React.Component {
 
 		this.state = {
 			data: this.props.data || null,
-			userData: this.props.userData || {},
+			userData: this.props.userData || [],
 			selectedPath: "",
 			expandedPaths: [],
 			expandedItem: null

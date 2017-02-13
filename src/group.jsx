@@ -16,7 +16,7 @@ export default class Group extends React.Component {
 		const backgroundStyle = selected ? {'backgroundColor': '#394f59'} : expanded ? {'backgroundColor': '#' + bgCol + bgCol + bgCol} : {}
 
 		return (
-			<div className={cn('group', expanded)}>
+			<div className={cn('group', {expanded})}>
 				<div className="group-panel" style={backgroundStyle} onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
 					<div className="group-caret" style={{'paddingLeft': indent + 'px'}}>
 						<Icon style={expanded === true ? 'caret-down' : 'caret-right'}/>
@@ -41,8 +41,9 @@ export default class Group extends React.Component {
 							})}
 						</div>
 					}
+					{this.props.group.groups &&
 					<div className="group-container">
-						{this.props.group.groups && this.props.group.groups.map((group) => {
+							{this.props.group.groups.map((group) => {
 							return (
 								<Group
 									key={group.id}
@@ -56,6 +57,7 @@ export default class Group extends React.Component {
 							)
 						})}
 					</div>
+					}
 				</Collapse>
 			</div>
 		)

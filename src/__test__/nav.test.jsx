@@ -217,7 +217,7 @@ it('marks the client as selected when client is clicked', () => {
 	expect(isClientSelected(clients[0])).toBe(true)
 })
 
-it('expands to show users when client is clicked and user data is loading', () => {
+it('expands to show users when client is clicked and user data is loaded', () => {
 	const onClientSelected = jest.fn()
 
 	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={() => { }} onClientSelected={onClientSelected} />)
@@ -237,9 +237,9 @@ it('expands to show users when client is clicked and user data is loading', () =
 
 	const users = clients[0].querySelectorAll('.user')
 	expect(users.length).toBe(3)
-	expect(getUserName(users[0])).toBe('user1@caplin.com')
-	expect(getUserName(users[1])).toBe('user2@caplin.com')
-	expect(getUserName(users[2])).toBe('user3@caplin.com')
+	expect(getUserName(users[0])).toBe('user1@client.com')
+	expect(getUserName(users[1])).toBe('user2@client.com')
+	expect(getUserName(users[2])).toBe('user3@client.com')
 })
 
 it('calls back on prop injected function when user is clicked', () => {
@@ -299,7 +299,7 @@ function getUserName(userElement) {
 }
 
 function groupIsExpanded(groupElement) {
-	return groupElement.querySelector('.group-container') !== null
+	return groupElement.className === 'group expanded'
 }
 
 function clientIsExpanded(clientElement) {
