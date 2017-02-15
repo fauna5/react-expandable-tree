@@ -6,7 +6,7 @@ $background-color-selected: #394F59;
 $background-color-level-0: #000;
 $background-color-level-1: #232323;
 
-.nav {
+.expandable-tree__nav {
   background-color: $background-color-light;
   color: $primary-color;
   cursor: pointer;
@@ -15,75 +15,76 @@ $background-color-level-1: #232323;
   overflow: auto;
 }
 
-.group {
+.expandable-tree__group {
   background-color: $background-color-dark;
 
-
-  &.expanded.level-0 {
-    >.group-panel {
-      background-color: $background-color-level-0;
+  &.expandable-tree__expanded {
+    &expandable-tree__level-0 {
+      >.expandable-tree__group-panel {
+        background-color: $background-color-level-0;
+      }
     }
   }
 
-  &.expanded.level-1 {
-    >.group-panel {
-      background-color: $background-color-level-1;
+  &.expandable-tree__expanded {
+    &.expandable-tree__level-1 {
+      >.expandable-tree__group-panel {
+        background-color: $background-color-level-1;
+      }
     }
   }
 
-  &.selected.expanded, &.selected {
-    >.group-panel {
+  &.expandable-tree__selected.expandable-tree__expanded,
+  &.expandable-tree__selected {
+    >.expandable-tree__group-panel {
       background-color: $background-color-selected;
     }
   }
 
-  .group-panel {
+  .expandable-tree__group-panel {
     display: flex;
     align-items: center;
     border-bottom: 2px solid $background-color-light;
     flex-direction: row;
   }
 
-  .group-header {
-
-
+  .expandable-tree__group-header {
     flex-grow: 1;
     padding: 7px;
   }
 
-  .group-caret {
+  .expandable-tree__group-caret {
     height: 21px;
     padding: 4px;
   }
 
-
-  .client-container {
+  .expandable-tree__client-container {
     border-bottom: 2px solid $background-color-light;
   }
 }
 
-.client {
-  .client-header {
-    display: flex;
+.expandable-tree__client {
+  .expandable-tree__client-header {
     align-items: center;
+    display: flex;
     flex-direction: row;
     padding: 7px;
     padding-top: 8px;
   }
 
-  .client-name {
+  .expandable-tree__client-name {
     flex-grow: 1;
     padding-left: 7px;
   }
 
-  svg.building {
+  .expandable-tree__building {
     fill: $primary-color;
     height: 18px;
     padding-left: 2px;
     width: 18px;
   }
 
-  .users-loading {
+  .expandable-tree__users-loading {
     display: flex;
     flex-direction: row;
     padding: 4px;
@@ -94,43 +95,43 @@ $background-color-level-1: #232323;
   }
 }
 
-.user {
+.expandable-tree__user {
   background-color: $background-color-dark;
   font-size: 11px;
   padding: 7px;
 
-  .user-panel {
+  .expandable-tree__user-panel {
     display: flex;
     flex-direction: row;
   }
 
-  .user-panel>svg {
+  .expandable-tree__user-panel>svg {
     width: 20px;
     height: 20px;
     fill: $primary-color;
     padding-top: 2px;
   }
 
-  .user-header {
+  .expandable-tree__user-header {
     padding-left: 8px;
   }
 
-  .first-name {
+  .expandable-tree__first-name {
     padding-left: 5px;
   }   
 
-  .user-name {
+  .expandable-tree__user-name {
     font-weight: italic;
   }
 }
 
-.caret {
+.expandable-tree__caret {
   width: 20px;
   fill: $primary-color;
 }
 
-.selected>.client-panel,
-.selected.user {
+.expandable-tree__selected>.expandable-tree__client-panel,
+.expandable-tree__selected.expandable-tree__user {
   background-color: $background-color-selected;
   color: $primary-color;
 }

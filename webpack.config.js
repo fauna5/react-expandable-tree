@@ -22,11 +22,20 @@ module.exports = function (env) {
 		module: {
 			loaders: [{
 				test: /\.css$/,
-				loaders: ['style-loader', 'css-loader']
+				loaders: [
+					'style-loader',
+					'css-loader',
+					'postcss-loader'
+				],
 			},
 			{
 				test: /\.scss$/,
-				loaders: ['style-loader', 'css-loader', 'sass-loader']
+				loaders: [
+					'style-loader',
+					'css-loader',
+					'sass-loader',
+					'postcss-loader'
+				]
 			},
 			{
 				test: /\.jsx$/,

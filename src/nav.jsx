@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react'
 import Group from './group.jsx'
 
-require('./style.scss')
-require('./spinner.css')
+import NavStyles from './style.scss'
+import SpinnerStyles from './spinner.css'
+
+import cn from 'classnames'
 
 export default class Nav extends React.Component {
 	constructor(props) {
@@ -57,22 +59,22 @@ export default class Nav extends React.Component {
 
 	render() {
 		return (
-			<div className="nav">
+			<div className="expandable-tree__nav">
 				{
 					!this.state.data
-						? <div className="sk-fading-circle large">
-								<div className="sk-circle1 sk-circle"></div>
-								<div className="sk-circle2 sk-circle"></div>
-								<div className="sk-circle3 sk-circle"></div>
-								<div className="sk-circle4 sk-circle"></div>
-								<div className="sk-circle5 sk-circle"></div>
-								<div className="sk-circle6 sk-circle"></div>
-								<div className="sk-circle7 sk-circle"></div>
-								<div className="sk-circle8 sk-circle"></div>
-								<div className="sk-circle9 sk-circle"></div>
-								<div className="sk-circle10 sk-circle"></div>
-								<div className="sk-circle11 sk-circle"></div>
-								<div className="sk-circle12 sk-circle"></div>
+						? <div className="expandable-tree__fading-circle expandable-tree__fading-circle_large">
+								<div className="expandable-tree__circle"></div>
+								<div className="expandable-tree__circle expandable-tree__circle2"></div>
+								<div className="expandable-tree__circle expandable-tree__circle3"></div>
+								<div className="expandable-tree__circle expandable-tree__circle4"></div>
+								<div className="expandable-tree__circle expandable-tree__circle5"></div>
+								<div className="expandable-tree__circle expandable-tree__circle6"></div>
+								<div className="expandable-tree__circle expandable-tree__circle7"></div>
+								<div className="expandable-tree__circle expandable-tree__circle8"></div>
+								<div className="expandable-tree__circle expandable-tree__circle9"></div>
+								<div className="expandable-tree__circle expandable-tree__circle10"></div>
+								<div className="expandable-tree__circle expandable-tree__circle11"></div>
+								<div className="expandable-tree__circle expandable-tree__circle12"></div>
 							</div>
 						: this.state.data.groups.map((group) => {
 							return <Group

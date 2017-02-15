@@ -13,35 +13,35 @@ export default class Client extends React.Component {
 		const selected = this.props.selectedPath === path
 
 		return (
-			<div className={cn('client', {selected})}>
-				<div className="client-panel"
+			<div className={cn('expandable-tree__client', {'expandable-tree__selected': selected})}>
+				<div className="expandable-tree__client-panel"
 					style={{paddingLeft: indent + 'px'}}
 					onClick={() => this.props.onExpand(this.props.path, 'client', this.props.client.id)}
 					>
-					<div className="client-header">
+					<div className="expandable-tree__client-header">
 						<Icon style={(expanded ? 'caret-down' : 'caret-right')} />
 						<Icon style="building" />
-						<div className="client-name">{this.props.client.name}</div>
-						<div className="client-active">ACTIVE</div>
+						<div className="expandable-tree__client-name">{this.props.client.name}</div>
+						<div className="expandable-tree__client-active">ACTIVE</div>
 					</div>
 				</div>
 				<Collapse isOpened={expanded} hasNestedCollapse={true}>
-					<div className="user-container">
+					<div className="expandable-tree__user-container">
 						{this.props.userData.length == 0 && expanded
-							? <div className="users-loading" style={{paddingLeft: (indent + 50) + 'px' }}>
-								<div className="sk-fading-circle small">
-									<div className="sk-circle1 sk-circle"></div>
-									<div className="sk-circle2 sk-circle"></div>
-									<div className="sk-circle3 sk-circle"></div>
-									<div className="sk-circle4 sk-circle"></div>
-									<div className="sk-circle5 sk-circle"></div>
-									<div className="sk-circle6 sk-circle"></div>
-									<div className="sk-circle7 sk-circle"></div>
-									<div className="sk-circle8 sk-circle"></div>
-									<div className="sk-circle9 sk-circle"></div>
-									<div className="sk-circle10 sk-circle"></div>
-									<div className="sk-circle11 sk-circle"></div>
-									<div className="sk-circle12 sk-circle"></div>
+							? <div className="expandable-tree__users-loading" style={{paddingLeft: (indent + 50) + 'px'}}>
+								<div className="expandable-tree__fading-circle expandable-tree__fading-circle_small">
+									<div className="expandable-tree__circle"></div>
+									<div className="expandable-tree__circle expandable-tree__circle2"></div>
+									<div className="expandable-tree__circle expandable-tree__circle3"></div>
+									<div className="expandable-tree__circle expandable-tree__circle4"></div>
+									<div className="expandable-tree__circle expandable-tree__circle5"></div>
+									<div className="expandable-tree__circle expandable-tree__circle6"></div>
+									<div className="expandable-tree__circle expandable-tree__circle7"></div>
+									<div className="expandable-tree__circle expandable-tree__circle8"></div>
+									<div className="expandable-tree__circle expandable-tree__circle9"></div>
+									<div className="expandable-tree__circle expandable-tree__circle10"></div>
+									<div className="expandable-tree__circle expandable-tree__circle11"></div>
+									<div className="expandable-tree__circle expandable-tree__circle12"></div>
 								</div>
 								<span>loading...</span>
 							</div>

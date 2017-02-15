@@ -4,6 +4,9 @@ import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
 import cn from 'classnames'
 
+require('./style.scss')
+
+
 export default class Group extends React.Component {
 
 	render() {
@@ -14,16 +17,16 @@ export default class Group extends React.Component {
 		const selected = this.props.selectedPath === path
 
 		return (
-			<div className={cn('group', {selected}, {expanded}, 'level-' + treeLevel)}>
-				<div className="group-panel" onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
-					<div className="group-caret" style={{'paddingLeft': indent + 'px'}}>
-						<Icon style={expanded === true ? 'caret-down' : 'caret-right'}/>
+			<div className={cn('expandable-tree__group', {'expandable-tree__selected': selected}, {'expandable-tree__expanded': expanded}, `expandable-tree__level-${treeLevel}`)}>
+				<div className="expandable-tree__group-panel" onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
+					<div className="expandable-tree__group-caret" style={{'paddingLeft': indent + 'px'}}>
+						<Icon style={expanded ? 'caret-down' : 'caret-right'}/>
 					</div>
-					<div className="group-header">{this.props.group.name}</div>
+					<div className="expandable-tree__group-header">{this.props.group.name}</div>
 				</div>
 				<Collapse isOpened={expanded} hasNestedCollapse={true}>
 					{this.props.group.clients &&
-						<div className="client-container">
+						<div className="expandable-tree__client-container">
 							{this.props.group.clients.map((client) => {
 								return (
 									<Client
@@ -40,7 +43,7 @@ export default class Group extends React.Component {
 						</div>
 					}
 					{this.props.group.groups &&
-					<div className="group-container">
+					<div className="expandable-tree__group-container">
 							{this.props.group.groups.map((group) => {
 							return (
 								<Group
