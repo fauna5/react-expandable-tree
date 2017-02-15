@@ -19,7 +19,7 @@ $background-color-level-1: #232323;
   background-color: $background-color-dark;
 
   &.expandable-tree__expanded {
-    &expandable-tree__level-0 {
+    &.expandable-tree__level-0 {
       >.expandable-tree__group-panel {
         background-color: $background-color-level-0;
       }
