@@ -36,6 +36,8 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
+    "stylelint-selector-bem-pattern": "^1.0.0",
+    "stylelint-webpack-plugin": "^0.6.0",
     "svg-url-loader": "^1.1.0",
     "transform-runtime": "0.0.0",
     "webpack": "^2.2.1",
