@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fauna5/react-expandable-tree.svg?branch=master)](https://travis-ci.org/fauna5/react-expandable-tree) [![Dependencies](https://david-dm.org/fauna5/react-expandable-tree.svg) [![devDependencies Status](https://david-dm.org/fauna5/react-expandable-tree/dev-status.svg)](https://david-dm.org/fauna5/react-expandable-tree?type=dev)
+[![Build Status](https://travis-ci.org/fauna5/react-expandable-tree.svg?branch=master)](https://travis-ci.org/fauna5/react-expandable-tree) ![Dependencies](https://david-dm.org/fauna5/react-expandable-tree.svg) [![devDependencies Status](https://david-dm.org/fauna5/react-expandable-tree/dev-status.svg)](https://david-dm.org/fauna5/react-expandable-tree?type=dev)
 
 # react-expandable-tree
 
