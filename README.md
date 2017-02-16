@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/fauna5/react-expandable-tree.svg?branch=master)](https://travis-ci.org/fauna5/react-expandable-tree)
+
+[![Dependencies](https://david-dm.org/fauna5/react-expandable-tree.svg)
+
 # react-expandable-tree
 
 Displays an expandable tree based on some JSON that you provide. 
