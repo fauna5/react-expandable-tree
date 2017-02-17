@@ -8,7 +8,7 @@ export default class Client extends React.Component {
 
 	render() {
 		const path = this.props.path + '.' + this.props.client.id
-		const indent = (this.props.path.split('.').length - 1) * 15 + 5
+		const indent = ((this.props.path.split('.').length - 1) * 15) + 5
 		const expanded = this.props.expandedPaths.includes(path)
 		const selected = this.props.selectedPath === path
 
@@ -45,14 +45,14 @@ export default class Client extends React.Component {
 								</div>
 								<span>loading...</span>
 							</div>
-							: this.props.userData.map((user) => {
-								return <User
-											key={user.userName}
-											path={path}
-											data={user}
-											selectedPath={this.props.selectedPath}
-											onExpand={this.props.onExpand} />
-							})
+							: this.props.userData.map((user) =>
+								<User
+									key={user.userName}
+									path={path}
+									data={user}
+									selectedPath={this.props.selectedPath}
+									onExpand={this.props.onExpand} />
+							)
 						}
 					</div>
 				</Collapse>

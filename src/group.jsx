@@ -12,7 +12,7 @@ export default class Group extends React.Component {
 	render() {
 		const path = this.props.path + '.' + this.props.group.id
 		const treeLevel = this.props.path.split('.').length - 1
-		const indent = treeLevel * 15 + 5
+		const indent = (treeLevel * 15) + 5
 		const expanded = this.props.expandedPaths.includes(path)
 		const selected = this.props.selectedPath === path
 
@@ -27,36 +27,32 @@ export default class Group extends React.Component {
 				<Collapse isOpened={expanded} hasNestedCollapse={true}>
 					{this.props.group.clients &&
 						<div className="expandable-tree__client-container">
-							{this.props.group.clients.map((client) => {
-								return (
-									<Client
-										key={client.id}
-										userData={this.props.userData}
-										client={client}
-										path={path}
-										selectedPath={this.props.selectedPath}
-										expandedPaths={this.props.expandedPaths}
-										onExpand={this.props.onExpand}
-									/>
-								)
-							})}
-						</div>
-					}
-					{this.props.group.groups &&
-					<div className="expandable-tree__group-container">
-							{this.props.group.groups.map((group) => {
-							return (
-								<Group
-									key={group.id}
+							{this.props.group.clients.map((client) =>
+								<Client
+									key={client.id}
 									userData={this.props.userData}
-									group={group}
+									client={client}
 									path={path}
 									selectedPath={this.props.selectedPath}
 									expandedPaths={this.props.expandedPaths}
 									onExpand={this.props.onExpand}
 								/>
-							)
-						})}
+							)}
+						</div>
+					}
+					{this.props.group.groups &&
+					<div className="expandable-tree__group-container">
+						{this.props.group.groups.map((group) =>
+							<Group
+								key={group.id}
+								userData={this.props.userData}
+								group={group}
+								path={path}
+								selectedPath={this.props.selectedPath}
+								expandedPaths={this.props.expandedPaths}
+								onExpand={this.props.onExpand}
+							/>
+						)}
 					</div>
 					}
 				</Collapse>

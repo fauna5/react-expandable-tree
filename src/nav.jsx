@@ -1,10 +1,7 @@
+import './style.scss'
+import './spinner.css'
 import React, {PropTypes} from 'react'
 import Group from './group.jsx'
-
-import NavStyles from './style.scss'
-import SpinnerStyles from './spinner.css'
-
-import cn from 'classnames'
 
 export default class Nav extends React.Component {
 	constructor(props) {
@@ -22,15 +19,15 @@ export default class Nav extends React.Component {
 	handleExpand(path, type, itemName) {
 		const fullPath = path ? path + '.' + itemName : itemName
 
-		let newExpandedPaths
+		let newExpandedPaths = null
 		if (this.state.expandedPaths.includes(fullPath)) { // remove if a close
-			newExpandedPaths = this.state.expandedPaths.filter((item) => {
-				return item !== fullPath
-			})
+			newExpandedPaths = this.state.expandedPaths.filter((item) =>
+				item !== fullPath
+			)
 		} else { // add if it's an open
-			newExpandedPaths = this.state.expandedPaths.filter((item) => {
-				return item.split('.').length !== fullPath.split('.').length
-			})
+			newExpandedPaths = this.state.expandedPaths.filter((item) =>
+				item.split('.').length !== fullPath.split('.').length
+			)
 			newExpandedPaths = [...newExpandedPaths, fullPath]
 		}
 
@@ -76,17 +73,17 @@ export default class Nav extends React.Component {
 								<div className="expandable-tree__circle expandable-tree__circle11"></div>
 								<div className="expandable-tree__circle expandable-tree__circle12"></div>
 							</div>
-						: this.state.data.groups.map((group) => {
-							return <Group
-										key={group.id}
-										userData={this.state.userData}
-										group={group}
-										path="ROOT"
-										selectedPath={this.state.selectedPath}
-										expandedPaths={this.state.expandedPaths}
-										onExpand={(...args) => this.handleExpand(...args)}
-									/>
-						})
+						: this.state.data.groups.map((group) =>
+							<Group
+								key={group.id}
+								userData={this.state.userData}
+								group={group}
+								path="ROOT"
+								selectedPath={this.state.selectedPath}
+								expandedPaths={this.state.expandedPaths}
+								onExpand={(...args) => this.handleExpand(...args)}
+							/>
+						)
 				}
 			</div>
 		)

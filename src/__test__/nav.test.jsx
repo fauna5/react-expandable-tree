@@ -1,9 +1,12 @@
+/* eslint max-lines: off */
 import ReactTestUtils, {Simulate} from 'react-addons-test-utils'
 import {initialData, userData} from './test-data.js'
 import Nav from '../nav.jsx'
 import React from 'react'
 
-function emptyFunc() {}
+function emptyFunc() {
+	//no op
+}
 
 it('shows loading on initial load', () => {
 	const component = ReactTestUtils.renderIntoDocument(<Nav />)
