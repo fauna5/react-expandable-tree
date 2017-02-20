@@ -4,9 +4,9 @@
   "description": "tree view of companies and users",
   "main": "lib/bundle.js",
   "scripts": {
-    "build": "webpack --env build",
+    "build": "npm-run-all lint && webpack --env build",
     "start": "webpack-dev-server --progress --colors --watch --env dev",
-    "test": "jest",
+    "test": "npm-run-all lint && jest",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint src/*.jsx",
     "lint:css": "stylelint \"./**/*css\"",
