@@ -10,7 +10,7 @@ function emptyFunc() {
 
 it('shows loading on initial load', () => {
 	const component = ReactTestUtils.renderIntoDocument(<Nav />)
-	expect(ReactTestUtils.findRenderedDOMComponentWithClass(component, 'expandable-tree__fading-circle')).toBeDefined()
+	expect(ReactTestUtils.findRenderedDOMComponentWithClass(component, 'expandable-tree__fading-circle--large')).toBeDefined()
 })
 
 it('shows the tree when initial data is pushed in', () => {
@@ -50,7 +50,7 @@ it('calls back on prop injected function when group is clicked', () => {
 	expect(onGroupSelected).toBeCalled()
 })
 
-it('marks the group as being selected when group is clicked', () => {
+it('marks the group as selected when group is clicked', () => {
 	const component = ReactTestUtils.renderIntoDocument(<Nav onGroupSelected={emptyFunc}/>)
 	component.onDataLoaded(initialData)
 
@@ -75,6 +75,7 @@ it('collapses the group on the second click', () => {
 	Simulate.click(topLevelGroups[1].querySelector('.expandable-tree__group-header'))
 
 	expect(groupIsExpanded(topLevelGroups[0])).toBe(false)
+	debugger;
 	expect(groupIsExpanded(topLevelGroups[1])).toBe(true)
 	expect(groupIsExpanded(topLevelGroups[2])).toBe(false)
 
@@ -304,7 +305,7 @@ function getUserName(userElement) {
 }
 
 function groupIsExpanded(groupElement) {
-	return groupElement.className.includes('expandable-tree__expanded')
+	return groupElement.getAttribute('data-expanded') === 'true'
 }
 
 function clientIsExpanded(clientElement) {
@@ -312,11 +313,11 @@ function clientIsExpanded(clientElement) {
 }
 
 function isGroupSelected(groupElement) {
-	return groupElement.className.includes('expandable-tree__selected')
+	return groupElement.querySelector('.expandable-tree__group-panel--selected') !== null
 }
 
 function isClientSelected(clientElement) {
-	return clientElement.className.includes('expandable-tree__selected')
+	return clientElement.querySelector('.expandable-tree__client-panel--selected') !== null
 }
 
 function isUserSelected(userElement) {

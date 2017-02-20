@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "run lint:*",
     "lint:js": "eslint src/*.jsx",
-    "lint:css": "stylint",
+    "lint:css": "stylelint \"./**/*css\"",
     "version": "webpack-dev-server -v"
   },
   "author": "fauna5",
@@ -41,6 +41,9 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.0",
     "style-loader": "^0.13.1",
+    "stylelint": "^7.9.0",
+    "stylelint-cli": "^1.0.0",
+    "stylelint-config-standard": "^16.0.0",
     "stylelint-selector-bem-pattern": "^1.0.0",
     "stylelint-webpack-plugin": "^0.6.0",
     "transform-runtime": "0.0.0",

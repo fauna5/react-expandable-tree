@@ -3,3 +3,4 @@ bundle
 yarn.lock
 lib
 *.tgz
+npm-debug.log

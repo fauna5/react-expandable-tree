@@ -1,6 +1,9 @@
 /* eslint no-console: off */
 /* global module, __dirname */
 
+const path = require('path')
+var StyleLintPlugin = require('stylelint-webpack-plugin')
+
 module.exports = function (env) {
 	console.log('\nMODE is', env)
 	let entry = "./src/nav.jsx"
@@ -11,6 +14,12 @@ module.exports = function (env) {
 	console.log('entry is', entry, '\n')
 
 	return {
+		plugins: [
+			new StyleLintPlugin({
+				configFile: path.join(__dirname, '.stylelintrc'),
+				files: ['**/*css']
+			})
+		],
 		entry,
 		output: {
 			path: __dirname,
@@ -25,7 +34,6 @@ module.exports = function (env) {
 				loaders: [
 					'style-loader',
 					'css-loader',
-					'postcss-loader'
 				],
 			},
 			{
@@ -34,7 +42,6 @@ module.exports = function (env) {
 					'style-loader',
 					'css-loader',
 					'sass-loader',
-					'postcss-loader'
 				]
 			},
 			{

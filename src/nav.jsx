@@ -59,19 +59,19 @@ export default class Nav extends React.Component {
 			<div className="expandable-tree__nav">
 				{
 					!this.state.data
-						? <div className="expandable-tree__fading-circle expandable-tree__fading-circle_large">
-								<div className="expandable-tree__circle"></div>
-								<div className="expandable-tree__circle expandable-tree__circle2"></div>
-								<div className="expandable-tree__circle expandable-tree__circle3"></div>
-								<div className="expandable-tree__circle expandable-tree__circle4"></div>
-								<div className="expandable-tree__circle expandable-tree__circle5"></div>
-								<div className="expandable-tree__circle expandable-tree__circle6"></div>
-								<div className="expandable-tree__circle expandable-tree__circle7"></div>
-								<div className="expandable-tree__circle expandable-tree__circle8"></div>
-								<div className="expandable-tree__circle expandable-tree__circle9"></div>
-								<div className="expandable-tree__circle expandable-tree__circle10"></div>
-								<div className="expandable-tree__circle expandable-tree__circle11"></div>
-								<div className="expandable-tree__circle expandable-tree__circle12"></div>
+						? <div className="expandable-tree__fading-circle--large">
+								<div className="expandable-tree__fading-circle-dot"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle2"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle3"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle4"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle5"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle6"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle7"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle8"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle9"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle10"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle11"></div>
+								<div className="expandable-tree__fading-circle-dot expandable-tree__fading-circle-dot--circle12"></div>
 							</div>
 						: this.state.data.groups.map((group) =>
 							<Group

@@ -1,11 +1,9 @@
+import './style.scss'
 import React, {PropTypes} from 'react'
 import Client from './client.jsx'
 import Collapse from 'react-collapse'
 import Icon from './icon.jsx'
 import cn from 'classnames'
-
-require('./style.scss')
-
 
 export default class Group extends React.Component {
 
@@ -16,9 +14,19 @@ export default class Group extends React.Component {
 		const expanded = this.props.expandedPaths.includes(path)
 		const selected = this.props.selectedPath === path
 
+		let headerCssClass = ''
+		if (selected) {
+			headerCssClass = 'expandable-tree__group-panel--selected'
+		} else if (expanded) {
+			headerCssClass = 'expandable-tree__group-panel--expanded-level' + treeLevel
+		}
+
 		return (
-			<div className={cn('expandable-tree__group', {'expandable-tree__selected': selected}, {'expandable-tree__expanded': expanded}, `expandable-tree__level-${treeLevel}`)}>
-				<div className="expandable-tree__group-panel" onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}>
+			<div className="expandable-tree__group" data-expanded={expanded}>
+				<div
+					className={cn('expandable-tree__group-panel', headerCssClass)}
+					onClick={() => this.props.onExpand(this.props.path, 'group', this.props.group.id)}
+				>
 					<div className="expandable-tree__group-caret" style={{'paddingLeft': indent + 'px'}}>
 						<Icon style={expanded ? 'caret-down' : 'caret-right'}/>
 					</div>

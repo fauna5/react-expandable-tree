@@ -1,13 +1,15 @@
 {
+  "namingConvention": "BEM",
+  "extends": "stylelint-config-standard",
   "plugins": [
     "stylelint-selector-bem-pattern"
   ],
   "rules": {
     "plugin/selector-bem-pattern": {
-      "componentName": "[A-Z]+",
+      "componentName": "[a-z]+",
       "componentSelectors": {
-        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
-        "combined": "^\\.combined-{componentName}-[a-z]+$"
+        "initial": "^\\.{componentName}(?:__[-a-z,0-9]+)?$",
+        "combined": "^\\.combined{componentName}(?:__[-a-z]+)?$"
       },
       "utilitySelectors": "^\\.util-[a-z]+$"
     }

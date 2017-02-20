@@ -1,7 +1,9 @@
-$primary-color: #EEE;
-$background-color-light: #4A4A4A;
-$background-color-dark: #3D3D3D;
-$background-color-selected: #394F59;
+/* postcss-bem-linter: define expandable-tree */
+
+$primary-color: #eee;
+$background-color-light: #4a4a4a;
+$background-color-dark: #3d3d3d;
+$background-color-selected: #394f59;
 
 $background-color-level-0: #000;
 $background-color-level-1: #232323;
@@ -17,112 +19,99 @@ $background-color-level-1: #232323;
 
 .expandable-tree__group {
   background-color: $background-color-dark;
-
-  &.expandable-tree__expanded {
-    &.expandable-tree__level-0 {
-      >.expandable-tree__group-panel {
-        background-color: $background-color-level-0;
-      }
-    }
-  }
-
-  &.expandable-tree__expanded {
-    &.expandable-tree__level-1 {
-      >.expandable-tree__group-panel {
-        background-color: $background-color-level-1;
-      }
-    }
-  }
-
-  &.expandable-tree__selected.expandable-tree__expanded,
-  &.expandable-tree__selected {
-    >.expandable-tree__group-panel {
-      background-color: $background-color-selected;
-    }
-  }
-
-  .expandable-tree__group-panel {
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid $background-color-light;
-    flex-direction: row;
-  }
-
-  .expandable-tree__group-header {
-    flex-grow: 1;
-    padding: 7px;
-  }
-
-  .expandable-tree__group-caret {
-    height: 21px;
-    padding: 4px;
-  }
-
-  .expandable-tree__client-container {
-    border-bottom: 2px solid $background-color-light;
-  }
 }
 
-.expandable-tree__client {
-  .expandable-tree__client-header {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    padding: 7px;
-    padding-top: 8px;
-  }
+.expandable-tree__group-panel {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid $background-color-light;
+  flex-direction: row;
+}
 
-  .expandable-tree__client-name {
-    flex-grow: 1;
-    padding-left: 7px;
-  }
+.expandable-tree__group-panel--expanded-level0 {
+  background-color: $background-color-level-0;
+}
 
-  .expandable-tree__building {
-    fill: $primary-color;
-    height: 18px;
-    padding-left: 2px;
-    width: 18px;
-  }
+.expandable-tree__group-panel--expanded-level1 {
+  background-color: $background-color-level-1;
+}
 
-  .expandable-tree__users-loading {
-    display: flex;
-    flex-direction: row;
-    padding: 4px;
+.expandable-tree__group-panel--selected {
+  background-color: $background-color-selected;
+}
 
-    span {
-      padding-left: 7px;
-    }
-  }
+.expandable-tree__group-header {
+  flex-grow: 1;
+  padding: 7px;
+}
+
+.expandable-tree__group-caret {
+  height: 21px;
+  padding: 4px;
+}
+
+.expandable-tree__client-container {
+  border-bottom: 2px solid $background-color-light;
+}
+
+.expandable-tree__client-header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 7px;
+  padding-top: 8px;
+}
+
+.expandable-tree__client-name {
+  flex-grow: 1;
+  padding-left: 7px;
+}
+
+.expandable-tree__building {
+  fill: $primary-color;
+  height: 18px;
+  padding-left: 2px;
+  width: 18px;
+}
+
+.expandable-tree__users-loading {
+  display: flex;
+  flex-direction: row;
+  padding: 4px;
+}
+
+.expandable-tree__users-loading-text {
+  padding-left: 7px;
 }
 
 .expandable-tree__user {
   background-color: $background-color-dark;
   font-size: 11px;
   padding: 7px;
+}
 
-  .expandable-tree__user-panel {
-    display: flex;
-    flex-direction: row;
-  }
+.expandable-tree__user-panel {
+  display: flex;
+  flex-direction: row;
+}
 
-  .expandable-tree__user-panel>svg {
-    width: 20px;
-    height: 20px;
-    fill: $primary-color;
-    padding-top: 2px;
-  }
+.expandable-tree__user-icon {
+  width: 20px;
+  height: 20px;
+  fill: $primary-color;
+  padding-top: 2px;
+}
 
-  .expandable-tree__user-header {
-    padding-left: 8px;
-  }
+.expandable-tree__user-header {
+  padding-left: 8px;
+}
 
-  .expandable-tree__first-name {
-    padding-left: 5px;
-  }   
+.expandable-tree__first-name {
+  padding-left: 5px;
+}
 
-  .expandable-tree__user-name {
-    font-weight: italic;
-  }
+.expandable-tree__user-name {
+  font-weight: italic;
 }
 
 .expandable-tree__caret {
@@ -130,8 +119,9 @@ $background-color-level-1: #232323;
   fill: $primary-color;
 }
 
-.expandable-tree__selected>.expandable-tree__client-panel,
-.expandable-tree__selected.expandable-tree__user {
+.expandable-tree__group-panel--selected,
+.expandable-tree__client-panel--selected,
+.expandable-tree__user--selected {
   background-color: $background-color-selected;
   color: $primary-color;
 }

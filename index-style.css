@@ -1,19 +1,20 @@
 body {
-	margin: 0px;
-	font-family: Helvetica, sans-serif
+  margin: 0;
+  font-family: Helvetica, sans-serif;
 }
+
 .container {
-	width: 333px;
-	height: 100vh;
-	background-color: #4a4a4a;
-	display: inline-block;
+  width: 333px;
+  height: 100vh;
+  background-color: #4a4a4a;
+  display: inline-block;
 }
 
 .main {
-	height: 400px;
-	text-align: center;
-	padding-left: 50px;
-	padding-top: 50px;
-	display: inline-block;
-	vertical-align: top;
+  height: 400px;
+  text-align: center;
+  padding-left: 50px;
+  padding-top: 50px;
+  display: inline-block;
+  vertical-align: top;
 }
