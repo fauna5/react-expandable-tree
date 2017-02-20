@@ -10,7 +10,7 @@
     "lint": "run lint:*",
     "lint:js": "eslint src/*.jsx",
     "lint:css": "stylelint \"./**/*css\"",
-    "prepush": "npm lint",
+    "prepush": "npm run lint",
     "version": "webpack-dev-server -v"
   },
   "author": "fauna5",
